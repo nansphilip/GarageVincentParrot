@@ -6,19 +6,16 @@
  * Launches php server
  * php -S localhost:8000 -d error_reporting=E_ALL
  */
-
 try {
 
-    // INITIALIZE
+    // Initialization
     require_once("includes/App.php");
-    require_once("includes/helpers.php");
+    require_once("includes/Helpers.php");
 
-    // TODO: add this config into a non-versioned config file
+     // Comments this line to switch to production mode
     define("ENVIRONMENT", "DEV");
-    // define("ENVIRONMENT", "PROD");
 
-
-    // ROUTER
+    // Router
     if (array_key_exists("p", $_GET)) {
         $page = $_GET["p"];
     } else {

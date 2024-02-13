@@ -3,11 +3,8 @@
 // PROCESS
 
 // Sets the page title.
-$title = "Véhicules d'occasion";
+$title = "Demande de devis";
 App::setTitle($title);
-
-// require_once("model/Vehicle.php");
-// $vehicle = Vehicle::get($_GET["id"]);
 
 // VARIABLES
 $tplVarList = [];
@@ -16,4 +13,4 @@ $tplVarList["title"] = $title;
 // OUTPUT
 App::setCss("main.css");
 App::setJs("main.js");
-App::getTemplate("vehicle-detail", $tplVarList);
+App::getTemplate("quote-request", $tplVarList);

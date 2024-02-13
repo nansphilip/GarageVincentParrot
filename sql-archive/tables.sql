@@ -1,10 +1,10 @@
 -- Creates tables
 CREATE TABLE `users` (
     `id_user` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `email` varchar(255) UNIQUE,
     `username` varchar(50) NOT NULL UNIQUE,
     `password` varchar(255) NOT NULL,
-    `user_type` varchar(255) NOT NULL DEFAULT 'EMPLOYEE' -- EMPLOYEE or ADMIN
+    `user_type` varchar(255) NOT NULL DEFAULT 'EMPLOYEE', -- EMPLOYEE or ADMIN
+    `email` varchar(255) UNIQUE
 );
 
 CREATE TABLE `vehicles` (
@@ -45,11 +45,6 @@ CREATE TABLE `services` (
 
 CREATE TABLE `schedules` (
     `id_schedule` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `monday` varchar(30) NOT NULL,
-    `tuesday` varchar(30) NOT NULL,
-    `wednesday` varchar(30) NOT NULL,
-    `thursday` varchar(30) NOT NULL,
-    `friday` varchar(30) NOT NULL,
-    `saturday` varchar(30) NOT NULL,
-    `sunday` varchar(30) NOT NULL
+    `day` varchar(15) NOT NULL,
+    `schedule` varchar(30) NOT NULL
 );

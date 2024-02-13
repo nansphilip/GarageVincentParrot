@@ -1,28 +1,42 @@
 <?php
 
-class Database {
+class Database
+{
     private static $pdo;
 
     private static function init() {
         // TODO: connect to database from the credentials in `config.ini`
-        self::$pdo = new PDO();
-        self::$pdo->connect(SERVER_URL, USERNAME, PASSWORD);
+        $database_dsn = 'mysql:host=localhost;dbname=task-manager';
+        $database_user = 'task-user';
+        $database_password = 'task-password';
+
+        self::$pdo = new PDO($database_dsn, $database_user, $database_password);
+        self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    public static function query($sql) {
+    public static function query($sql, $bindList = []) {
 
-        // First time
+        // If first time
         if (!self::$pdo) {
             self::$pdo::init();
         }
 
-        self::$pdo->prepare($sql);
-        self::$pdo->execute();
+        $stmt = self::$pdo->prepare($sql);
+
+        // Bind values if needed
+        if ($bindList != null) {
+            foreach ($bindList as $key => $value) {
+                $stmt->bindValue($key, $value);
+            }
+        }
+        
+        $stmt->execute();
 
         $data = [];
 
-        foreach (self::$pdo->fetchAll() as $row) {
-            $data[] = $row->fetch();
+        // Stores the data in an associative array
+        if ($stmt->rowCount() > 0) {
+            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
         return $data;

@@ -16,4 +16,5 @@
         <li>04 42 65 48 84</li>
         <li>© 2024 Ultra Motor. Tous droits réservés.</li>
     </ul>
+    <a class="link-dark link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href="index.php?p=login">Se connecter</a>
 </footer>

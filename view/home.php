@@ -1,11 +1,6 @@
 <?php App::getTemplate("common/document-top"); ?>
 
-<?php
-$tplVarList = [];
-$tplVarList["title"] = $title;
-?>
-
-<?php App::getTemplate("component/header", $tplVarList); ?>
+<?php App::getTemplate("component/header"); ?>
 
 <main>
     <div class="">

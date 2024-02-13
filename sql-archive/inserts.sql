@@ -1,10 +1,9 @@
 -- Creates data
-INSERT INTO `users` (`email`, `username`, `password`, `user_type`) VALUES
-('admin@example.com', 'admin', 'hashed_admin_password', 'ADMIN');
-INSERT INTO `users` (`username`, `password`, `user_type`) VALUES
-('employee1', 'hashed_password1', 'EMPLOYEE'),
-('employee2', 'hashed_password2', 'EMPLOYEE'),
-('employee3', 'hashed_password3', 'EMPLOYEE');
+INSERT INTO `users` (`username`, `password`, `user_type`, `email`) VALUES
+('admin', 'hashed_admin_password', 'ADMIN', 'admin@example.com'),
+('employee1', 'hashed_password1', 'EMPLOYEE', NULL),
+('employee2', 'hashed_password2', 'EMPLOYEE', NULL),
+('employee3', 'hashed_password3', 'EMPLOYEE', NULL);
 
 INSERT INTO `vehicles` (`brand`, `model`, `entry_year`, `mileage`, `price`, `imagePath`) VALUES
 ('Peugeot', '208', 2018, 50000, 12000.00, 'peugeot_208.jpg'),
@@ -48,3 +47,12 @@ INSERT INTO `services` (`name`, `description`, `price`) VALUES
 ('Amortisseurs', 'Vérification et remplacement des amortisseurs pour améliorer le confort de conduite et la tenue de route.', 249.99),
 ('Pré-contrôle technique', 'Vérification des principaux points de contrôle technique pour maximiser vos chances de réussite.', 49.99),
 ('Lavage et detailing', 'Nettoyage complet intérieur et extérieur, polish carrosserie pour redonner éclat et brillance à votre véhicule.', 99.99);
+
+INSERT INTO `schedules` (`day`, `schedule`) VALUES
+('Lundi', '8:00-17:00'),
+('Mardi', '8:00-17:00'),
+('Mercredi', '8:00-17:00'),
+('Jeudi', '8:00-17:00'),
+('Vendredi', '8:00-17:00'),
+('Samedi', '9:00-12:00'),
+('Dimanche', 'Fermé');
