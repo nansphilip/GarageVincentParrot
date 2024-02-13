@@ -10,13 +10,13 @@ class Vehicle {
     public $imagePath;
 
     public function __construct($idVehicle, $brand, $model, $entryYear, $mileage, $price, $imagePath) {
-        $this->$idVehicle = $idVehicle;
-        $this->$brand = $brand;
-        $this->$model = $model;
-        $this->$entryYear = $entryYear;
-        $this->$mileage = $mileage;
-        $this->$price = $price;
-        $this->$imagePath = $imagePath;
+        $this->idVehicle = $idVehicle;
+        $this->brand = $brand;
+        $this->model = $model;
+        $this->entryYear = $entryYear;
+        $this->mileage = $mileage;
+        $this->price = $price;
+        $this->imagePath = $imagePath;
     }
 
     public static function get($idVehicle) {

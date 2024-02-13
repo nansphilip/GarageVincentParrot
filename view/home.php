@@ -1,23 +1,32 @@
 <?php App::getTemplate("common/document-top"); ?>
 
-<?php App::getTemplate("component/header"); ?>
+<?php
+$tplVarList = [];
+$tplVarList["page"] = $page;
+$tplVarList["connected"] = $connected;
+?>
+
+<?php App::getTemplate("component/header", $tplVarList); ?>
 
 <main>
-    <div class="">
+    <div>
         <section class="bg-150 mb-2 p-2 rounded-3">
             <h2>Services proposés</h2>
-            <ul class="mb-0">
-                <li>Vidange d'huile</li>
-                <li>Remplacement des plaquettes de frein</li>
-                <li>Contrôle et réparation de la climatisation</li>
-                <li>Diagnostic électronique</li>
-                <li>Révision générale</li>
-                <li>Changement de pneus</li>
-                <li>Réparation de carrosserie</li>
-                <li>Contrôle technique</li>
+            <ul class="folding-container overflow-hidden mb-0">
+                <?php foreach ($serviceList as $service) : ?>
+                    <li>
+                        <div class="d-flex f-row justify-content-between align-items-baseline">
+                            <h5><?= $service->name ?></h5>
+                            <p><?= $service->price ?> €</p>
+                        </div>
+                        <p><?= $service->description ?></p>
+                    </li>
+                <?php endforeach; ?>
             </ul>
+            <div class="d-flex justify-content-center"><button class="unfold-button btn btn-secondary" type="button" onclick="unfold()">Voir plus</button></div>
+            <div class="d-flex justify-content-center d-none"><button class="fold-button btn btn-secondary" type="button" onclick="fold()">Voir moins</button></div>
         </section>
-        
+
         <section class="bg-150 mb-2 p-2 rounded-3">
             <h2>Annonces de voitures</h2>
             <div class="custom-grid list-unstyled">

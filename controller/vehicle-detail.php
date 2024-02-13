@@ -1,17 +1,17 @@
 <?php
 
 // PROCESS
+$connected = false;
 
 // Sets the page title.
 $title = "Véhicules d'occasion";
 App::setTitle($title);
 
-// require_once("model/Vehicle.php");
-// $vehicle = Vehicle::get($_GET["id"]);
-
 // VARIABLES
 $tplVarList = [];
 $tplVarList["title"] = $title;
+$tplVarList["page"] = $page;
+$tplVarList["connected"] = $connected;
 
 // OUTPUT
 App::setCss("main.css");

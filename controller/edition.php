@@ -1,13 +1,12 @@
 <?php
 
 // PROCESS
-
-$connect = true;
+$connected = true;
 $type = "admin";
 $value = "";
 
 // Sets the page title.
-if ($connect == true) {
+if ($connected == true) {
     if ($type == "admin") {
         $value = " administrateur";
     }
@@ -22,6 +21,8 @@ App::setTitle($title);
 // VARIABLES
 $tplVarList = [];
 $tplVarList["title"] = $title;
+$tplVarList["page"] = $page;
+$tplVarList["connected"] = $connected;
 
 // OUTPUT
 App::setCss("main.css");

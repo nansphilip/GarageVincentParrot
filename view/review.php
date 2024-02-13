@@ -1,6 +1,12 @@
-<?php App::getTemplate("common/document-top");?>
+<?php App::getTemplate("common/document-top"); ?>
 
-<?php App::getTemplate("component/header"); ?>
+<?php
+$tplVarList = [];
+$tplVarList["page"] = $page;
+$tplVarList["connected"] = $connected;
+?>
+
+<?php App::getTemplate("component/header", $tplVarList); ?>
 
 <main>
     <h1><?= $title ?></h1>

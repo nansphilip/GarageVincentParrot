@@ -6,9 +6,9 @@ class Database
 
     private static function init() {
         // TODO: connect to database from the credentials in `config.ini`
-        $database_dsn = 'mysql:host=localhost;dbname=task-manager';
-        $database_user = 'task-user';
-        $database_password = 'task-password';
+        $database_dsn = 'mysql:host=localhost;dbname=ultra-motor-db';
+        $database_user = 'ultra-motor-user';
+        $database_password = 'ultra-motor-password';
 
         self::$pdo = new PDO($database_dsn, $database_user, $database_password);
         self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -18,7 +18,7 @@ class Database
 
         // If first time
         if (!self::$pdo) {
-            self::$pdo::init();
+            self::init();
         }
 
         $stmt = self::$pdo->prepare($sql);

@@ -10,6 +10,7 @@ try {
 
     // Initialization
     require_once("includes/App.php");
+    require_once("includes/Database.php");
     require_once("includes/Helpers.php");
 
      // Comments this line to switch to production mode
