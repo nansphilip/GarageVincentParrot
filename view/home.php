@@ -9,7 +9,7 @@ $tplVarList["title"] = $title;
 
 <main>
     <div class="">
-        <section class="bg-200 mb-2 p-2 rounded-3">
+        <section class="bg-150 mb-2 p-2 rounded-3">
             <h2>Services proposés</h2>
             <ul class="mb-0">
                 <li>Vidange d'huile</li>
@@ -23,12 +23,12 @@ $tplVarList["title"] = $title;
             </ul>
         </section>
         
-        <section class="bg-200 mb-2 p-2 rounded-3">
+        <section class="bg-150 mb-2 p-2 rounded-3">
             <h2>Annonces de voitures</h2>
             <div class="custom-grid list-unstyled">
-                <div class="d-flex f-row bg-100 p-2 rounded-3">
+                <div class="d-flex f-row bg-200 p-2 rounded-3">
                     <div class="overflow-hidden me-2 rounded-1" style="width: 8rem;">
-                        <img class="object-fit-cover h-100 w-100" src="/static/img/voiture1.jpg" alt="Peugeot 208">
+                        <img class="object-fit-cover h-100 w-100" src="/static/img/voiture1.webp" alt="Peugeot 208">
                     </div>
                     <div class="car-desc me-2" style="width: calc(100% - 14rem);">
                         <h5 class="mb-0">Peugeot 208</h5>
@@ -39,9 +39,9 @@ $tplVarList["title"] = $title;
                     </div>
                 </div>
 
-                <div class="d-flex f-row bg-100 p-2 rounded-3">
+                <div class="d-flex f-row bg-200 p-2 rounded-3">
                     <div class="overflow-hidden me-2 rounded-1" style="width: 8rem;">
-                        <img class="object-fit-cover h-100 w-100" src="/static/img/voiture2.jpg" alt="Renault Clio IV">
+                        <img class="object-fit-cover h-100 w-100" src="/static/img/voiture2.webp" alt="Renault Clio IV">
                     </div>
                     <div class="car-desc me-2" style="width: calc(100% - 14rem);">
                         <h5 class="mb-0">Renault Clio IV</h5>
@@ -52,9 +52,9 @@ $tplVarList["title"] = $title;
                     </div>
                 </div>
 
-                <div class="d-flex f-row bg-100 p-2 rounded-3">
+                <div class="d-flex f-row bg-200 p-2 rounded-3">
                     <div class="overflow-hidden me-2 rounded-1" style="width: 8rem;">
-                        <img class="object-fit-cover h-100 w-100" src="/static/img/voiture3.jpg" alt="Citroën C3">
+                        <img class="object-fit-cover h-100 w-100" src="/static/img/voiture3.webp" alt="Citroën C3">
                     </div>
                     <div class="car-desc me-2" style="width: calc(100% - 14rem);">
                         <h5 class="mb-0">Citroën C3</h5>
@@ -65,9 +65,9 @@ $tplVarList["title"] = $title;
                     </div>
                 </div>
 
-                <div class="d-flex f-row bg-100 p-2 rounded-3">
+                <div class="d-flex f-row bg-200 p-2 rounded-3">
                     <div class="overflow-hidden me-2 rounded-1" style="width: 8rem;">
-                        <img class="object-fit-cover h-100 w-100" src="/static/img/voiture4.jpg" alt="Fiat 500">
+                        <img class="object-fit-cover h-100 w-100" src="/static/img/voiture4.webp" alt="Fiat 500">
                     </div>
                     <div class="car-desc me-2" style="width: calc(100% - 14rem);">
                         <h5 class="mb-0">Fiat 500</h5>
@@ -81,22 +81,22 @@ $tplVarList["title"] = $title;
         </section>
     </div>
 
-    <section class="bg-200 p-2 rounded-3">
+    <section class="bg-150 p-2 rounded-3">
         <h2>Avis client</h2>
         <ul class="custom-grid list-unstyled mb-0">
-            <li class="bg-100 p-2 rounded-3">
+            <li class="bg-200 p-2 rounded-3">
                 <h5 class="mb-0">Marc Dupont</h5>
                 <p class="mb-0">Service rapide et efficace, très satisfait!</p>
             </li>
-            <li class="bg-100 p-2 rounded-3">
+            <li class="bg-200 p-2 rounded-3">
                 <h5 class="mb-0">Julie Lefebvre</h5>
                 <p class="mb-0">Accueil chaleureux, conseils professionnels.</p>
             </li>
-            <li class="bg-100 p-2 rounded-3">
+            <li class="bg-200 p-2 rounded-3">
                 <h5 class="mb-0">Xavier Martin</h5>
                 <p class="mb-0">Prix compétitifs, travail de qualité. Je recommande!</p>
             </li>
-            <li class="bg-100 p-2 rounded-3">
+            <li class="bg-200 p-2 rounded-3">
                 <h5 class="mb-0">Sophie Bernard</h5>
                 <p class="mb-0">Réparation rapide, garage très fiable.</p>
             </li>
