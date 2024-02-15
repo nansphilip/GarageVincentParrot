@@ -16,7 +16,7 @@ class Employee extends User {
     public $connectStatus = true;
     public $userType = "employee";
 
-    public $idUser;
+    public $id;
     public $username;
     // public $password;
     

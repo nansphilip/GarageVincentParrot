@@ -1,7 +1,7 @@
 <?php
 
 class Vehicle {
-    public $idVehicle;
+    public $id;
     public $brand;
     public $model;
     public $entryYear;
@@ -9,8 +9,8 @@ class Vehicle {
     public $price;
     public $imagePath;
 
-    public function __construct($idVehicle, $brand, $model, $entryYear, $mileage, $price, $imagePath) {
-        $this->idVehicle = $idVehicle;
+    public function __construct($id = null, $brand = null, $model = null, $entryYear = null, $mileage = null, $price = null, $imagePath = null) {
+        $this->id = $id;
         $this->brand = $brand;
         $this->model = $model;
         $this->entryYear = $entryYear;
@@ -19,15 +19,37 @@ class Vehicle {
         $this->imagePath = $imagePath;
     }
 
-    public static function get($idVehicle) {
+    public function validate() {
+        $this->id = dbFormatInt($this->id);
+        $this->brand = dbFormatString($this->brand);
+        $this->model = dbFormatString($this->model);
+        $this->entryYear = dbFormatInt($this->entryYear);
+        $this->mileage = dbFormatInt($this->mileage);
+        $this->price = dbFormatFloat($this->price);
+        $this->imagePath = dbFormatString($this->imagePath);
+    }
+
+    public static function get($id) {
+
         // Gets the data from the database
-        $data = Database::query("SELECT * FROM vehicles WHERE id_vehicle = :idVehicle;", [":idVehicle" => $idVehicle]);
+        $data = Database::query("SELECT * FROM vehicle WHERE id_vehicle = :idVehicle;", [":idVehicle" => $id]);
+
+        $vehicle = new Vehicle();
+        $vehicle->id = $data["id"];
+        $vehicle->brand = $data["brand"];
+        $vehicle->model = $data["model"];
+        $vehicle->entryYear = $data["entryYear"];
+        $vehicle->mileage = $data["mileage"];
+        $vehicle->price = $data["price"];
+        $vehicle->imagePath = $data["imagePath"];
+        $vehicle->validate();
 
         // Returns a new instance of the class
-        return new self($data["idVehicle"], $data["brand"], $data["model"], $data["entryYear"], $data["mileage"], $data["price"], $data["imagePath"]);
+        return $vehicle;
     }
 
     public static function getAll() {
+
         // Gets the data from the database
         $data = Database::query("SELECT * FROM vehicle;");
 
@@ -35,7 +57,15 @@ class Vehicle {
 
         // Returns a new instance of the class for each row
         foreach ($data as $value) {
-            $instanceList[] = new self($value["idVehicle"], $value["brand"], $value["model"], $value["entryYear"], $value["mileage"], $value["price"], $value["imagePath"]);
+            $instanceList[] = new self(
+                $value["id"],
+                $value["brand"],
+                $value["model"],
+                $value["entry_year"],
+                $value["mileage"],
+                $value["price"],
+                $value["imagePath"]
+            );
         }
 
         return $instanceList;

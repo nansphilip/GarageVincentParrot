@@ -1,22 +1,22 @@
 <?php
 
 class QuoteRequest {
-    public $idQuoteRequest;
+    public $id;
     public $firstName;
     public $lastName;
     public $email;
     public $phone;
     public $message;
-    public $idCar;
+    public $idVehicle;
 
-    public function __construct($idQuoteRequest, $firstName, $lastName, $email, $phone, $message, $idCar) {
-        $this->idQuoteRequest = $idQuoteRequest;
+    public function __construct($id, $firstName, $lastName, $email, $phone, $message, $idVehicle) {
+        $this->id = $id;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->email = $email;
         $this->phone = $phone;
         $this->message = $message;
-        $this->idCar = $idCar;
+        $this->idVehicle = $idVehicle;
     }
 
     public function sendQuoteRequest() {}

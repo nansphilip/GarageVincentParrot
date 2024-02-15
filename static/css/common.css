@@ -1,5 +1,25 @@
 /* Commons */
 
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(0, 0%, 95%);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(0, 0%, 53%);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(0, 0%, 33%);
+    border-radius: 5px;
+}
+
 /* Background Prototyping */
 .bg-100 {
     background-color: hsl(0, 0%, 95%);

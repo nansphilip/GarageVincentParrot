@@ -14,6 +14,4 @@ $tplVarList["page"] = $page;
 $tplVarList["connected"] = $connected;
 
 // OUTPUT
-App::setCss("main.css");
-App::setJs("main.js");
 App::getTemplate("vehicle-detail", $tplVarList);

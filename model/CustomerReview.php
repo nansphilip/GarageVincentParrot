@@ -1,14 +1,14 @@
 <?php
 
 class CustomerReview {
-    public $idCustomerReview;
+    public $id;
     public $fullName;
     public $review;
     public $rating;
     public $approved;
 
-    public function __construct($idCustomerReview, $fullName, $review, $rating, $approved) {
-        $this->idCustomerReview = $idCustomerReview;
+    public function __construct($id, $fullName, $review, $rating, $approved) {
+        $this->id = $id;
         $this->fullName = $fullName;
         $this->review = $review;
         $this->rating = $rating;

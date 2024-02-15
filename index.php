@@ -13,7 +13,9 @@ try {
     require_once("includes/Database.php");
     require_once("includes/Helpers.php");
 
-     // Comments this line to switch to production mode
+    // date_default_timezone_set("UTC");
+
+    // Comments this line to switch to production mode
     define("ENVIRONMENT", "DEV");
 
     // Router
@@ -38,3 +40,4 @@ try {
 
     require_once("controller/error.php");
 }
+

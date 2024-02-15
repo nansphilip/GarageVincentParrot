@@ -25,17 +25,20 @@
  * -> in a controller file (e.g. controller/home.php):
  * ```php
  * App::setCss("main.css");
- * App::setJs("main.js");
+ * App::setJs("common/main.js");
  * ```
  * 
  * -> in a view file (e.g. view/home.php) :
  * ```php
  * <?php
+ * // At the end of the head
  * if (isset(App::$staticFileList["css"])) {
  *     foreach (App::$staticFileList["css"] as $fileName) {
  *         echo '<link rel="stylesheet" href="' . App::getCss($fileName) . '">';
  *     }
  * }
+ * 
+ * // At the end of the body
  * if (isset(App::$staticFileList["js"])) {
  *     foreach (App::$staticFileList["js"] as $fileName) {
  *         echo '<script src="' . App::getJs($fileName) . '"></script>';

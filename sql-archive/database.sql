@@ -1,3 +1,4 @@
+-- SQLBook: Code
 -- Creates a database
 CREATE DATABASE `ultra-motor-db`;
 
