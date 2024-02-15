@@ -22,4 +22,25 @@ class CustomerReview {
     public function sendAndApproveReview() {}
 
     private function sendEmailToAdmin() {}
+
+    public static function getAllApproved() {
+
+        // Gets the data from the database
+        $data = Database::query("SELECT * FROM customer_review WHERE approved = 1;");
+
+        $instanceList = [];
+
+        // Returns a new instance of the class for each row
+        foreach ($data as $value) {
+            $instanceList[] = new self(
+                $value["id"],
+                $value["full_name"],
+                $value["review"],
+                $value["rating"],
+                $value["approved"],
+            );
+        }
+
+        return $instanceList;
+    }
 }

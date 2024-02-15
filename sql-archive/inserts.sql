@@ -33,7 +33,15 @@ INSERT INTO `customer_review` (`full_name`, `review`, `rating`, `approved`) VALU
 ('Émilie Laurent', 'Les tarifs des services sont abordables et la qualité est au rendez-vous. Je suis très contente des réparations effectuées.', 4, 1),
 ('François Roussel', 'Intervention rapide et efficace pour le changement de mes pneus. Je repasserai sans hésiter.', 5, 1),
 ('Géraldine Mathieu', 'Équipe de vente très à l\'écoute, j\'ai trouvé le véhicule qui correspondait parfaitement à mes attentes.', 4, 0),
-('Hervé Poirier', 'Professionnalisme et sérieux, je suis ravi des services proposés par ce garage.', 5, 1);
+('Hervé Poirier', 'Professionnalisme et sérieux, je suis ravi des services proposés par ce garage.', 5, 1),
+('Isabelle Moreau', 'Excellente prise en charge et suivi client. Je suis extrêmement satisfaite des prestations fournies.', 5, 1),
+('Jean Lefebvre', 'Satisfaction totale pour les réparations réalisées. Accueil chaleureux et prix compétitifs.', 4, 1),
+('Karine Dubois', 'Agréablement surprise par la compétence du vendeur qui m\'a guidée dans mon choix. Service impeccable.', 5, 1),
+('Louis Mercier', 'Accueil personnalisé et écoute attentive. Les conseils étaient pertinents et adaptés à mes besoins.', 5, 0),
+('Marie Laurent', 'Prestations de qualité à des prix justes. Je recommande vivement ce garage pour leurs services.', 4, 1),
+('Nicolas Roussel', 'Service rapide pour un changement de pneus. Très satisfait de l\'intervention.', 5, 1),
+('Olivia Mathieu', 'Très bon accueil et grande disponibilité de l\'équipe de vente. J\'ai trouvé la voiture idéale.', 4, 0),
+('Pierre Poirier', 'Je suis impressionné par le professionnalisme de l\'équipe. Service de qualité supérieure.', 5, 1);
 
 INSERT INTO `service` (`name`, `description`, `price`) VALUES
 ('Vidange', 'Changement d\'huile moteur et remplacement du filtre à huile. Contrôle des niveaux et des principaux éléments de sécurité.', 80),

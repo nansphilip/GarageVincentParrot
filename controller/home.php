@@ -3,25 +3,31 @@
 // PROCESS
 $connected = false;
 
-// Sets the page title.
+// Sets page title.
 $title = "Accueil";
 App::setTitle($title);
 
-// Imports the Service class
+// Imports Service class
 require_once("model/Service.php");
 $serviceList = Service::getAll();
 
-// Imports the Vehicle class
+// Imports Vehicle class
 require_once("model/Vehicle.php");
 $vehicleList = Vehicle::getAll();
+
+// Imports Customer Review class
+require_once('model/CustomerReview.php');
+$reviewList = CustomerReview::getAllApproved();
 
 // VARIABLES
 $tplVarList = [];
 $tplVarList["title"] = $title;
 $tplVarList["page"] = $page;
 $tplVarList["connected"] = $connected;
+
 $tplVarList["serviceList"] = $serviceList;
 $tplVarList["vehicleList"] = $vehicleList;
+$tplVarList["reviewList"] = $reviewList;
 
 // OUTPUT
 App::getTemplate("home", $tplVarList);
