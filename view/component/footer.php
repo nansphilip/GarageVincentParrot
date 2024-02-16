@@ -25,8 +25,8 @@
             </button>
             <ul class="dropdown-menu list-unstyled mb-0">
                 <li class="dropdown-item-text fw-semibold">Ultra Motor</li>
-                <li class="dropdown-item"><a class="link-dark link-underline-opacity-0" href="https://maps.app.goo.gl/nxo5CgP3k4kAYfnw7">123 Rue de la République<br>13002 Marseille</a></li>
-                <li class="dropdown-item"><a class="link-dark link-underline-opacity-0" href="tel:0442654884">04 42 65 48 84</a></li>
+                <li class="dropdown-item"><a class="link-dark link-underline-opacity-0" target="_blank" href="https://maps.app.goo.gl/nxo5CgP3k4kAYfnw7">123 Rue de la République<br>13002 Marseille</a></li>
+                <li class="dropdown-item"><a class="link-dark link-underline-opacity-0" target="_blank" href="tel:0442654884">04 42 65 48 84</a></li>
             </ul>
         </div>
     </div>
