@@ -1,18 +1,20 @@
 <?php
 
 // PROCESS
-$connected = true;
-$type = "admin";
+$connected = $_SESSION['connected'] ?? false;
+$userType = $_SESSION['userType'] ?? null;
 $value = "";
 
 // Sets the page title.
-if ($connected == true) {
-    if ($type == "admin") {
-        $value = " administrateur";
-    }
-    if ($type == "user") {
+if ($connected) {
+    if ($userType == "ADMIN") {
+        $value = " admin";
+    } else {
         $value = " employé(e)";
     }
+} else {
+    header('Location: /index.php?p=login');
+    exit();
 }
 
 $title = "Tableau de bord" . $value;
@@ -22,7 +24,6 @@ App::setTitle($title);
 $tplVarList = [];
 $tplVarList["title"] = $title;
 $tplVarList["page"] = $page;
-$tplVarList["connected"] = $connected;
 
 // OUTPUT
 App::getTemplate("edition", $tplVarList);

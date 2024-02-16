@@ -37,8 +37,9 @@ class Database
         // Stores the data in an associative array
         if ($stmt->rowCount() > 0) {
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
+        } else {
+            return null;
         }
-
-        return $data;
     }
 }

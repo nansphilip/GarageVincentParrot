@@ -1,3 +1,4 @@
+<?php $connected = $_SESSION['connected'] ?? false; ?>
 <header class="container-fluid mb-2 mx-0" style="height: 50px;">
     <div class="h-100 row gap-2">
         <a class="h-100 col-auto d-flex flex-row align-items-center gap-2 bg-150 rounded-3 link-dark link-underline-opacity-0" href="index.php">
@@ -8,8 +9,9 @@
             <a class="link-dark link-underline-opacity-0 link-underline-opacity-100-hover <?= $page == "home" ? "fw-bold" : "" ?>" href="index.php">Accueil</a>
             <a class="link-dark link-underline-opacity-0 link-underline-opacity-100-hover <?= $page == "vehicle-detail" ? "fw-bold" : "" ?>" href="index.php?p=vehicle-detail">Véhicules d'occasion</a>
             <a class="link-dark link-underline-opacity-0 link-underline-opacity-100-hover <?= $page == "review" ? "fw-bold" : "" ?>" href="index.php?p=review">Avis clients</a>
-            <?php if ($connected == true) : ?>
+            <?php if ($connected) : ?>
                 <a class="link-dark link-underline-opacity-0 link-underline-opacity-100-hover <?= $page == "edition" ? "fw-bold" : "" ?>" href="index.php?p=edition">Édition</a>
+                <a class="link-dark link-underline-opacity-0 link-underline-opacity-100-hover <?= $page == "logout" ? "fw-bold" : "" ?>" href="index.php?p=logout">Déconnexion</a>
             <?php else : ?>
                 <a class="link-dark link-underline-opacity-0 link-underline-opacity-100-hover <?= $page == "quote-request" ? "fw-bold" : "" ?>" href="index.php?p=quote-request">Demander un devis</a>
             <?php endif ?>
@@ -20,13 +22,18 @@
                     <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
                 </svg>
             </button>
-            <style>#menu::after { display: none; }</style>
+            <style>
+                #menu::after {
+                    display: none;
+                }
+            </style>
             <ul class="dropdown-menu">
                 <a class="dropdown-item link-dark link-underline-opacity-0 <?= $page == "home" ? "fw-bold" : "" ?>" href="index.php">Accueil</a>
                 <a class="dropdown-item link-dark link-underline-opacity-0 <?= $page == "vehicle-detail" ? "fw-bold" : "" ?>" href="index.php?p=vehicle-detail">Véhicules d'occasion</a>
                 <a class="dropdown-item link-dark link-underline-opacity-0 <?= $page == "review" ? "fw-bold" : "" ?>" href="index.php?p=review">Avis clients</a>
-                <?php if ($connected == true) : ?>
+                <?php if ($connected) : ?>
                     <a class="dropdown-item link-dark link-underline-opacity-0 <?= $page == "edition" ? "fw-bold" : "" ?>" href="index.php?p=edition">Édition</a>
+                    <a class="dropdown-item link-dark link-underline-opacity-0 <?= $page == "logout" ? "fw-bold" : "" ?>" href="index.php?p=logout">Déconnexion</a>
                 <?php else : ?>
                     <a class="dropdown-item link-dark link-underline-opacity-0 <?= $page == "quote-request" ? "fw-bold" : "" ?>" href="index.php?p=quote-request">Demander un devis</a>
                 <?php endif ?>

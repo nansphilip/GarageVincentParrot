@@ -2,7 +2,7 @@
 
 <?php App::getTemplate("component/header", $tplVarList); ?>
 
-<main style="height: calc(100vh - 100px - 3rem);">
+<main style="height: calc(100vh - 100px - 4rem);">
     <h1><?= $title ?></h1>
 </main>
 

@@ -3,7 +3,21 @@
 class User {
     public $connectStatus = false;
 
-    public function login() {}
+    public static function login($username, $password) {
+
+        $user = Database::query("SELECT * FROM user WHERE username = :username", [':username' => $username]);
+
+        // User exists and password is correct
+        if (isset($user) && password_verify($password, $user[0]['password'])) {
+
+            $_SESSION['connected'] = true;
+            $_SESSION['userType'] = $user[0]["user_type"];
+            
+            return true;
+        } else {
+            return false;
+        }
+    }
     
     public function sendReview() {}
 
@@ -20,8 +34,6 @@ class Employee extends User {
     public $username;
     // public $password;
     
-    public function logout() {}
-
     public function approveReview() {}
 
     public function sendAndApproveReview() {}

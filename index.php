@@ -28,6 +28,7 @@ try {
     $controllerPath = "controller/$page.php";
 
     if (file_exists($controllerPath)) {
+        session_start();
         require_once($controllerPath);
     } else {
         throw new Exception("Error 404: given controller '$page' is not found");

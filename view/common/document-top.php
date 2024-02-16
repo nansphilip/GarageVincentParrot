@@ -25,4 +25,4 @@
 
 </head>
 
-<body class="p-3">
+<body class="p-4 grid-xxl">

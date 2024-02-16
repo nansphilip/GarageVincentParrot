@@ -1,10 +1,10 @@
 -- SQLBook: Code
 -- Creates data
 INSERT INTO `user` (`username`, `password`, `user_type`, `email`) VALUES
-('admin', 'hashed_admin_password', 'ADMIN', 'admin@example.com'),
-('employee1', 'hashed_password1', 'EMPLOYEE', NULL),
-('employee2', 'hashed_password2', 'EMPLOYEE', NULL),
-('employee3', 'hashed_password3', 'EMPLOYEE', NULL);
+('admin', '$2y$10$v.fJ0zb3pJxcWlGd3aFAruyhImYpPyrFkWo1E11V.xqVkIRpGJdnm', 'ADMIN', 'admin@example.com'),
+('employee1', '$2y$10$n6U79FbwZTfN/HxVEd6NTeDoc/8AIzjFIIj762KeiA1oe4sw4ZS4a', 'employee1@example.com', NULL),
+('employee2', '$2y$10$QYMQC8AxAXA3be0HWQBkOeKT/WmnSXv206IJSvIAaIkpktLl14Roe', 'employee2@example.com', NULL),
+('employee3', '$2y$10$9URsetdNuysedS2zCJqJjO9GpE4EkiaTo7VZ0IFHa46Owu8wkPF9.', 'employee3@example.com', NULL);
 
 INSERT INTO `vehicle` (`brand`, `model`, `entry_year`, `mileage`, `price`, `imagePath`) VALUES
 ('Peugeot', '208', 2018, 50000, 12000, 'peugeot_208.webp'),

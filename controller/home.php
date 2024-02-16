@@ -1,7 +1,6 @@
 <?php
 
 // PROCESS
-$connected = false;
 
 // Sets page title.
 $title = "Accueil";
@@ -23,7 +22,6 @@ $reviewList = CustomerReview::getAllApproved();
 $tplVarList = [];
 $tplVarList["title"] = $title;
 $tplVarList["page"] = $page;
-$tplVarList["connected"] = $connected;
 
 $tplVarList["serviceList"] = $serviceList;
 $tplVarList["vehicleList"] = $vehicleList;
