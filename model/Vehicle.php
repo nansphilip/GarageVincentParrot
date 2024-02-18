@@ -1,6 +1,7 @@
 <?php
 
-class Vehicle {
+class Vehicle
+{
     public $id;
     public $brand;
     public $model;
@@ -19,46 +20,6 @@ class Vehicle {
         $this->imagePath = $imagePath;
     }
 
-    // public function validate() {
-    //     $this->id = dbFormatInt($this->id);
-    //     $this->brand = dbFormatString($this->brand);
-    //     $this->model = dbFormatString($this->model);
-    //     $this->entryYear = dbFormatInt($this->entryYear);
-    //     $this->mileage = dbFormatInt($this->mileage);
-    //     $this->price = dbFormatFloat($this->price);
-    //     $this->imagePath = dbFormatString($this->imagePath);
-    // }
-
-    public static function getBrandList() {
-
-        // Gets the data from the database
-        $data = Database::query("SELECT DISTINCT brand FROM vehicle;");
-
-        $brandList = [];
-
-        // Returns a new instance of the class for each row
-        foreach ($data as $value) {
-            $brandList[] = $value["brand"];
-        }
-
-        return $brandList;
-    }
-
-    public static function getModelList() {
-
-        // Gets the data from the database
-        $data = Database::query("SELECT DISTINCT model FROM vehicle;");
-
-        $modelList = [];
-
-        // Returns a new instance of the class for each row
-        foreach ($data as $value) {
-            $modelList[] = $value["model"];
-        }
-
-        return $modelList;
-    }
-
     public static function getBrandModelList() {
 
         // Gets the data from the database
@@ -74,30 +35,6 @@ class Vehicle {
         return $brandModelList;
     }
 
-    public static function getPriceRange() {
-
-        // Gets the data from the database
-        $data = Database::query("SELECT MIN(price) AS min, MAX(price) AS max FROM vehicle;");
-
-        return $data[0];
-    }
-
-    public static function getYearRange() {
-
-        // Gets the data from the database
-        $data = Database::query("SELECT MIN(entry_year) AS min, MAX(entry_year) AS max FROM vehicle;");
-
-        return $data[0];
-    }
-
-    public static function getMileageRange() {
-
-        // Gets the data from the database
-        $data = Database::query("SELECT MIN(mileage) AS min, MAX(mileage) AS max FROM vehicle;");
-
-        return $data[0];
-    }
-    
     public static function get($id) {
 
         // Gets the data from the database

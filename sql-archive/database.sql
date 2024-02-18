@@ -1,9 +1,11 @@
--- SQLBook: Code
 -- Creates a database
 CREATE DATABASE `ultra-motor-db`;
 
 -- Selects the new database
 USE `ultra-motor-db`;
+
+-- Afficher la liste des utilisateurs
+SELECT User, Host FROM mysql.user;
 
 -- Creates an user and a password
 CREATE USER 'ultra-motor-user'@'localhost' IDENTIFIED BY 'ultra-motor-password';

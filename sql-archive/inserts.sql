@@ -1,4 +1,3 @@
--- SQLBook: Code
 -- Creates data
 INSERT INTO `user` (`username`, `password`, `user_type`, `email`) VALUES
 ('admin', '$2y$10$v.fJ0zb3pJxcWlGd3aFAruyhImYpPyrFkWo1E11V.xqVkIRpGJdnm', 'ADMIN', 'admin@example.com'),
@@ -16,7 +15,27 @@ INSERT INTO `vehicle` (`brand`, `model`, `entry_year`, `mileage`, `price`, `imag
 ('Fiat', '500', 2020, 10000, 14000, 'fiat_500.webp'),
 ('Honda', 'Civic', 2018, 60000, 16000, 'honda_civic.webp'),
 ('BMW', 'Series 3', 2019, 25000, 25000, 'bmw_series3.webp'),
-('Audi', 'A3', 2020, 15000, 27000, 'audi_a3.webp');
+('Audi', 'A3', 2020, 15000, 27000, 'audi_a3.webp'),
+('Peugeot', '308', 2019, 70000, 13000, 'peugeot_308.webp'),
+('Peugeot', '308', 2020, 30000, 20000, 'peugeot_308-2.webp'),
+('Renault', 'Megane', 2018, 70000, 12000, 'renault_megane.webp'),
+('Renault', 'Megane', 2020, 25000, 19000, 'renault_megane-2.webp'),
+('Citroën', 'C4', 2018, 35000, 10000, 'citroen_c4.webp'),
+('Citroën', 'C4', 2020, 27000, 12000, 'citroen_c4-2.webp'),
+('Ford', 'Focus', 2021, 15000, 14000, 'ford_focus.webp'),
+('Ford', 'Focus', 2024, 10000, 20000, 'ford_focus-2.webp'),
+('Toyota', 'Corolla', 2019, 30000, 10000, 'toyota_corolla.webp'),
+('Toyota', 'Corolla', 2021, 20000, 13000, 'toyota_corolla-2.webp'),
+('Volkswagen', 'Golf', 2020, 20000, 12500, 'volkswagen_golf.webp'),
+('Volkswagen', 'Golf', 2021, 19000, 14000, 'volkswagen_golf-2.webp'),
+('Fiat', 'Panda', 2021, 15000, 11000, 'fiat_panda.webp'),
+('Fiat', 'Panda', 2023, 5000, 15000, 'fiat_panda-2.webp'),
+('Honda', 'Accord', 2019, 55000, 17000, 'honda_accord.webp'),
+('Honda', 'Accord', 2015, 70000, 12000, 'honda_accord-2.webp'),
+('BMW', 'Series 1', 2024, 5000, 35000, 'bmw_series1.webp'),
+('BMW', 'Series 1', 2020, 80000, 23000, 'bmw_series1-2.webp'),
+('Audi', 'A1', 2021, 10000, 25000, 'audi_a1.webp'),
+('Audi', 'A1', 2017, 90000, 35000, 'audi_a1-2.webp');
 
 INSERT INTO `quote_request` (`first_name`, `last_name`, `email`, `phone`, `message`, `id_vehicle`) VALUES
 ('Jean', 'Dupont', 'jean.dupont@example.com', '0123456789', 'Je suis intéressé par la Peugeot 208. Pouvez-vous me fournir plus de détails sur son historique, son état actuel, et les options de financement disponibles ? J\'ai un budget d\'environ 12 000 € et je cherche une voiture fiable pour mes trajets quotidiens. Merci d\'avance pour vos conseils et votre assistance.', 1),
@@ -26,22 +45,33 @@ INSERT INTO `quote_request` (`first_name`, `last_name`, `email`, `phone`, `messa
 ('Olivier', 'Petit', 'olivier.petit@example.com', '0123456783', 'Je suis à la recherche d\'une première voiture pour mon fils qui vient d\'obtenir son permis de conduire. Je souhaite une voiture sûre, fiable et économique, de préférence une citadine. Avez-vous des modèles à me conseiller ? Quelles sont les démarches pour un éventuel financement ? Nous aimerions également savoir si vous proposez des cours de perfectionnement à la conduite pour les jeunes conducteurs.', NULL);
 
 INSERT INTO `customer_review` (`full_name`, `review`, `rating`, `approved`) VALUES
+('Xavier Moreau', 'Prix compétitifs.', 4, 1),
 ('Alice Moreau', 'Service impeccable et personnel très aimable. Je suis pleinement satisfaite de mon achat et je recommande vivement ce garage.', 5, 1),
 ('Bernard Lefebvre', 'Très satisfait des travaux de réparation effectués sur ma voiture. Les prix sont raisonnables et le service est rapide.', 4, 1),
 ('Claire Dubois', 'Bonne expérience d\'achat, le vendeur était très compétent et a su répondre à toutes mes questions.', 5, 1),
+('Thomas Martin', 'Personnel aimable et compétent.', 4, 1),
+('Sophie Dupont', 'Service rapide et efficace.', 5, 1),
 ('Denis Mercier', 'Service client au top ! J\'ai apprécié l\'accueil et les conseils personnalisés.', 5, 0),
+('Valérie Girard', 'Les réparations effectuées sur mon véhicule ont été impeccables. Le rapport qualité-prix est excellent. Je suis entièrement satisfaite.', 5, 1),
 ('Émilie Laurent', 'Les tarifs des services sont abordables et la qualité est au rendez-vous. Je suis très contente des réparations effectuées.', 4, 1),
+('William Moreau', 'Équipe compétente et professionnelle. J\'ai trouvé exactement ce que je cherchais grâce aux conseils avisés du vendeur. Service impeccable.', 5, 1),
+('Valérie Durand', 'Réparations impeccables.', 5, 1),
 ('François Roussel', 'Intervention rapide et efficace pour le changement de mes pneus. Je repasserai sans hésiter.', 5, 1),
 ('Géraldine Mathieu', 'Équipe de vente très à l\'écoute, j\'ai trouvé le véhicule qui correspondait parfaitement à mes attentes.', 4, 0),
+('William Girard', 'Service professionnel.', 5, 1),
 ('Hervé Poirier', 'Professionnalisme et sérieux, je suis ravi des services proposés par ce garage.', 5, 1),
 ('Isabelle Moreau', 'Excellente prise en charge et suivi client. Je suis extrêmement satisfaite des prestations fournies.', 5, 1),
 ('Jean Lefebvre', 'Satisfaction totale pour les réparations réalisées. Accueil chaleureux et prix compétitifs.', 4, 1),
 ('Karine Dubois', 'Agréablement surprise par la compétence du vendeur qui m\'a guidée dans mon choix. Service impeccable.', 5, 1),
 ('Louis Mercier', 'Accueil personnalisé et écoute attentive. Les conseils étaient pertinents et adaptés à mes besoins.', 5, 0),
 ('Marie Laurent', 'Prestations de qualité à des prix justes. Je recommande vivement ce garage pour leurs services.', 4, 1),
+('Thomas Durand', 'Service après-vente efficace et réactif. J\'ai reçu des réponses claires à toutes mes questions. Je recommande vivement ce garage.', 4, 1),
 ('Nicolas Roussel', 'Service rapide pour un changement de pneus. Très satisfait de l\'intervention.', 5, 1),
 ('Olivia Mathieu', 'Très bon accueil et grande disponibilité de l\'équipe de vente. J\'ai trouvé la voiture idéale.', 4, 0),
-('Pierre Poirier', 'Je suis impressionné par le professionnalisme de l\'équipe. Service de qualité supérieure.', 5, 1);
+('Pierre Poirier', 'Je suis impressionné par le professionnalisme de l\'équipe. Service de qualité supérieure.', 5, 1),
+('Sophie Martin', 'J\'ai été agréablement surprise par la rapidité du service et la qualité de l\'accueil. Le personnel était très compétent et aimable.', 5, 1),
+('Xavier Dupont', 'Je suis très content de mon expérience avec ce garage. Les prix sont compétitifs et le personnel est sympathique et serviable.', 4, 1);
+
 
 INSERT INTO `service` (`name`, `description`, `price`) VALUES
 ('Vidange', 'Changement d\'huile moteur et remplacement du filtre à huile. Contrôle des niveaux et des principaux éléments de sécurité.', 80),

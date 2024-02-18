@@ -26,4 +26,10 @@ if (isset($vehicle)) {
 }
 
 // OUTPUT
+
+
+
+
+App::setJs("common/Helpers.js");
+App::setJs("view/quote-request.js");
 App::getTemplate("quote-request", $tplVarList);

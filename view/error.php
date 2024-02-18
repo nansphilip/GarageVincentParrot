@@ -10,6 +10,7 @@
     <p>Trace:</p>
     <pre><code><?php print_r($th->getTrace()) ?></code></pre>
 
+
 <?php else: ?>
 
     <p>An error happened...</p>

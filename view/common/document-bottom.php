@@ -5,7 +5,7 @@
     <!-- PROPRIETARY -->
     <?php if (isset(App::$staticFileList["js"])) {
         foreach (App::$staticFileList["js"] as $fileName) {
-            echo '<script src="' . App::getJs($fileName) . '"></script>';
+            echo '<script type="module" src="' . App::getJs($fileName) . '"></script>';
         }
     } ?>
 
