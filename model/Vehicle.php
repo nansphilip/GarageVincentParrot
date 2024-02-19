@@ -10,7 +10,8 @@ class Vehicle
     public $price;
     public $imagePath;
 
-    public function __construct($id = null, $brand = null, $model = null, $entryYear = null, $mileage = null, $price = null, $imagePath = null) {
+    public function __construct($id = null, $brand = null, $model = null, $entryYear = null, $mileage = null, $price = null, $imagePath = null)
+    {
         $this->id = $id;
         $this->brand = $brand;
         $this->model = $model;
@@ -20,22 +21,87 @@ class Vehicle
         $this->imagePath = $imagePath;
     }
 
-    public static function getBrandModelList() {
+    public static function getBrandList()
+    {
 
         // Gets the data from the database
-        $data = Database::query("SELECT DISTINCT brand, model FROM vehicle;");
+        $data = Database::query("SELECT DISTINCT brand FROM vehicle ORDER BY brand ASC;");
+
+        $brandList = [];
+
+        // Returns a new instance of the class for each row
+        foreach ($data as $value) {
+            $brandList[] = $value["brand"];
+        }
+
+        return $brandList;
+    }
+
+    public static function getModelList()
+    {
+
+        // Gets the data from the database
+        $data = Database::query("SELECT DISTINCT model FROM vehicle ORDER BY model ASC;");
+
+        $modelList = [];
+
+        // Returns a new instance of the class for each row
+        foreach ($data as $value) {
+            $modelList[] = $value["model"];
+        }
+
+        return $modelList;
+    }
+
+    public static function getBrandModelList()
+    {
+
+        // Gets the data from the database
+        $data = Database::query("SELECT DISTINCT model, brand FROM vehicle;");
 
         $brandModelList = [];
 
         // Returns a new instance of the class for each row
         foreach ($data as $value) {
-            $brandModelList[$value["brand"]] = $value["model"];
+
+            if (!isset($brandModelList[$value["brand"]])) {
+                $brandModelList[$value["brand"]] = [];
+            }
+            $brandModelList[$value["brand"]][] = $value["model"];
         }
 
         return $brandModelList;
     }
 
-    public static function get($id) {
+    public static function getMileageRange()
+    {
+
+        // Gets the data from the database
+        $data = Database::query("SELECT MIN(mileage) AS min, MAX(mileage) AS max FROM vehicle;");
+
+        return $data[0];
+    }
+
+    public static function getYearRange()
+    {
+
+        // Gets the data from the database
+        $data = Database::query("SELECT MIN(entry_year) AS min, MAX(entry_year) AS max FROM vehicle;");
+
+        return $data[0];
+    }
+
+    public static function getPriceRange()
+    {
+
+        // Gets the data from the database
+        $data = Database::query("SELECT MIN(price) AS min, MAX(price) AS max FROM vehicle;");
+
+        return $data[0];
+    }
+
+    public static function get($id)
+    {
 
         // Gets the data from the database
         $data = Database::query("SELECT * FROM vehicle WHERE id = :id;", [":id" => $id]);
@@ -44,7 +110,8 @@ class Vehicle
         return $data[0];
     }
 
-    public static function getAll() {
+    public static function getAll()
+    {
 
         // Gets the data from the database
         $data = Database::query("SELECT * FROM vehicle;");

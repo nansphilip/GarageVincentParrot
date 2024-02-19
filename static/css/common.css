@@ -1,4 +1,75 @@
-/* Commons */
+/* Main style */
+
+/*
+Rules:
+
+    1. BLACK: No style
+    2. GREEN: Parent of BLUE has `d-flex flex-column`
+    3. BLUE: Element taking remaining space has `flex-1`
+    4. RED: Overflow element has `overflow-auto`
+
+    5. Each elements between GREEN & BLUE must have `h-100`
+    6. If a BLUE element has another BLUE parent element,
+        it must have `overflow-hidden`
+
+    GREEN: `d-flex flex-column`
+    BLUE: `flex-1`
+    RED: `overflow-auto`
+    SPECIAL: `overflow-hidden`
+*/
+
+html,
+body {
+    height: 100%;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+
+header,
+main,
+footer {
+    max-width: 1060px;
+}
+
+@media (min-height: 800px) {
+
+    header,
+    main,
+    footer {
+        max-width: 1060px;
+    }
+}
+
+@media (min-height: 1000px) {
+
+    header,
+    main,
+    footer {
+        max-width: 1330px;
+    }
+}
+
+@media (min-height: 1200px) {
+
+    header,
+    main,
+    footer {
+        max-width: 1600px;
+    }
+}
+
+@media (min-height: 1400px) {
+
+    header,
+    main,
+    footer {
+        max-width: 1860px;
+    }
+}
+
 
 /* Scrollbar */
 ::-webkit-scrollbar {
@@ -21,7 +92,7 @@
 }
 
 
-/* XXL Screen */
+/* XXXL Screen */
 @media screen and (min-width: 2000px) {
     .grid-xxl {
         display: grid;

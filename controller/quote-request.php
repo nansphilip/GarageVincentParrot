@@ -25,11 +25,11 @@ if (isset($vehicle)) {
     $tplVarList["vehicle"] = $vehicle;
 }
 
+if (isset($_POST['quote-request'])) {
+    $tplVarList["popup"] = true;
+}
+
 // OUTPUT
-
-
-
-
 App::setJs("common/Helpers.js");
 App::setJs("view/quote-request.js");
 App::getTemplate("quote-request", $tplVarList);

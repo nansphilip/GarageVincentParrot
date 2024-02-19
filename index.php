@@ -6,6 +6,9 @@
  * Launches php server
  * php -S localhost:8000 -d error_reporting=E_ALL
  */
+
+$returnJson = false;
+
 try {
 
     // Initialization
@@ -21,6 +24,10 @@ try {
     // Router
     if (array_key_exists("p", $_GET)) {
         $page = $_GET["p"];
+    } else if (array_key_exists("a", $_GET)) {
+        $page = $_GET["a"];
+        header('Content-Type: application/json');
+        $returnJson = true;
     } else {
         $page = "home";
     }
@@ -37,8 +44,18 @@ try {
 } catch (\Throwable $th) {
 
     // GLOBAL ERROR MANAGEMENT
+
     ob_end_clean();
 
-    require_once("controller/error.php");
-}
+    if ($returnJson) {
 
+        echo json_encode([
+            "success" => false,
+            "msg" => ENVIRONMENT === "DEV" ? $th->getMessage() : null,
+            "data" => null,
+        ]);
+
+    } else {
+        require_once("controller/error.php");
+    }
+}

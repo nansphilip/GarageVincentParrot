@@ -1,8 +1,8 @@
-<footer class="container-fluid mt-2 bg-150 rounded-3" style="height: 50px;">
+<footer class="container-fluid bg-150 rounded-3 p-2">
     <div class="h-100 w-100 d-flex flex-row justify-content-evenly align-items-center">
 
         <div class="dropup dropup-center btn btn-light p-0 rounded-3">
-            <button class="dropdown-toggle px-3 py-2" style="background-color: transparent; border: none;" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expended="false">
+            <button class="dropdown-toggle px-3 py-1" style="background-color: transparent; border: none;" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expended="false">
                 Horaires
             </button>
             <ul class="dropdown-menu list-unstyled mb-0">
@@ -20,7 +20,7 @@
         <div><a class="link-dark link-underline-opacity-0 link-underline-opacity-100-hover" href="index.php?p=login">Se connecter</a></div>
 
         <div class="dropup dropup-center btn btn-light p-0 rounded-3">
-            <button class="dropdown-toggle px-3 py-2" style="background-color: transparent; border: none;" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expended="false">
+            <button class="dropdown-toggle px-3 py-1" style="background-color: transparent; border: none;" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expended="false">
                 Coordonnées
             </button>
             <ul class="dropdown-menu list-unstyled mb-0">

@@ -14,7 +14,6 @@ $reviewList = CustomerReview::getAllApproved();
 $tplVarList = [];
 $tplVarList["title"] = $title;
 $tplVarList["page"] = $page;
-
 $tplVarList["reviewList"] = $reviewList;
 
 // OUTPUT

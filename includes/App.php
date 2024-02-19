@@ -11,7 +11,6 @@
  * - Path Retrieval: Provides methods to construct and retrieve the paths of static files if they exist, throwing an exception if a file is not found, which aids in debugging and error handling.
  * 
  * 
- * Usage exemple:
  * 
  * - How to include App class ?
  * 

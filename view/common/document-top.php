@@ -25,4 +25,4 @@
 
 </head>
 
-<body class="p-4 grid-xxl">
+<body class="d-flex flex-column row-gap-3 justify-content-center align-items-center p-4">

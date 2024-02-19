@@ -36,7 +36,6 @@ if (isset($_POST['login'])) {
 // VARIABLES
 $tplVarList = [];
 $tplVarList["title"] = $title;
-$tplVarList["page"] = $page;
 $tplVarList["connectionFailed"] = false;
 
 // Connection denied/failed
