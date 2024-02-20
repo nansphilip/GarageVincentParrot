@@ -44,7 +44,7 @@ export default class Helpers {
      *
      * @param {string} selector - The CSS selector for the input element to be formatted with spaces every three digits.
      */
-    static formatNumber(selector) {
+    static formatInputNumber(selector, locale = 'fr-FR') {
         const numberInput = document.querySelector(selector);
 
         numberInput.addEventListener('input', () => {
@@ -53,10 +53,15 @@ export default class Helpers {
             let value = numberInput.value.replace(/\D/g, '');
 
             // Formats the number with a space every 3 digits
-            value = Number(value).toLocaleString('fr-FR');
+            value = Number(value).toLocaleString(locale);
 
             // Sets the formatted value to the input
             numberInput.value = value;
         });
+    };
+
+    static formatNumber(number, locale = 'fr-FR') {
+        // Formats the number with a space every 3 digits
+        return Number(number).toLocaleString(locale);
     };
 };

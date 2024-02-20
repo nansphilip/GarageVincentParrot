@@ -2,10 +2,12 @@
 
 // PROCESS
 
-// Sets the page title.
+// Sets the page meta
 $title = "Véhicules d'occasion";
 App::setTitle($title);
+App::setDescription("Découvrez notre sélection de véhicules d'occasion. Tous nos véhicules sont révisés et garantis.");
 
+// Imports Vehicle class and gets data
 require_once "model/Vehicle.php";
 $brandList = Vehicle::getBrandList();
 $modelList = Vehicle::getModelList();
@@ -28,5 +30,6 @@ $tplVarList["priceRange"] = $priceRange;
 
 // OUTPUT
 App::setJs("common/Ajax.js");
+App::setJs("common/Helpers.js");
 App::setJs("view/vehicle-detail.js");
 App::getTemplate("vehicle-detail", $tplVarList);

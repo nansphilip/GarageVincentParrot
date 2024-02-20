@@ -2,14 +2,15 @@
 
 // PROCESS
 
-// Sets the page title.
+// Sets the page meta
 $title = "Demande de devis";
 App::setTitle($title);
+App::setDescription("Demandez un devis pour l'entretien de votre véhicule.");
 
 // Import vehicle name if needed
 $vehicle;
-if (array_key_exists("id", $_GET)) {
-    $idVehicle = $_GET["id"];
+if (array_key_exists("vehicle", $_GET)) {
+    $idVehicle = $_GET["vehicle"];
 
     // Imports Vehicle class
     require_once("model/Vehicle.php");

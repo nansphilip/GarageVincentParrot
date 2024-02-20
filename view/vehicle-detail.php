@@ -2,7 +2,7 @@
 
 <?php App::getTemplate("component/header", $tplVarList); ?>
 
-<main class="w-100 flex-1 d-flex flex-column overflow-hidden bg-150 rounded-3 gap-3 p-3">
+<main class="w-100 flex-1 d-flex flex-column overflow-hidden bg-150 shadow-sm rounded-3 gap-3 p-3">
 
     <div class="d-flex flex-row justify-content-between align-items-center">
         <h1 class="mb-0"><?= $title ?></h1>
@@ -54,18 +54,21 @@
 
     <div class="flex-1 overflow-x-hidden overflow-y-auto">
         <div id="insert-ajax" class="row g-3">
+            
+            <!-- Insert Placeholder before AJAX request -->
             <!-- AJAX request success -->
+
         </div>
 
         <!-- AJAX request fail -->
         <div class="modal" tabindex="-1">
-            <div class="modal-dialog h-100 d-flex justify-content-center align-items-center">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Une erreur est survenue</h5>
                     </div>
                     <div class="modal-body">
-                        <p>Impossible de charger les données, veuillez réessayer plus tard.</p>
+                        <p>Impossible de charger les données : veuillez contacter un administrateur ou réessayer plus tard.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>

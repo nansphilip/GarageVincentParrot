@@ -43,7 +43,7 @@ class Service
     public static function getAll()
     {
         // Gets the data from the database
-        $data = Database::query("SELECT * FROM service;");
+        $data = Database::query("SELECT * FROM service ORDER BY name ASC;");
 
         $instanceList = [];
 

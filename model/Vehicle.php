@@ -114,7 +114,7 @@ class Vehicle
     {
 
         // Gets the data from the database
-        $data = Database::query("SELECT * FROM vehicle;");
+        $data = Database::query("SELECT * FROM vehicle ORDER BY id DESC;");
 
         $instanceList = [];
 

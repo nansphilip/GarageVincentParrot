@@ -5,16 +5,17 @@
 // Sets page title.
 $title = "Accueil";
 App::setTitle($title);
+App::setDescription("Bienvenue chez Ultra Motor, votre concessionnaire automobile à Marseille. Découvrez notre sélection de véhicules d'occasion et nos services de qualité.");
 
-// Imports Service class
+// Imports Service class and gets data
 require_once("model/Service.php");
 $serviceList = Service::getAll();
 
-// Imports Vehicle class
+// Imports Vehicle class and gets data
 require_once("model/Vehicle.php");
 $vehicleList = Vehicle::getAll();
 
-// Imports Customer Review class
+// Imports Customer Review class and gets data
 require_once('model/CustomerReview.php');
 $reviewList = CustomerReview::getAllApproved();
 

@@ -2,11 +2,11 @@
 
 <?php App::getTemplate("component/header", $tplVarList); ?>
 
-<main class="w-100 flex-1 d-flex flex-column overflow-auto w-100 bg-150 rounded-3 px-3 py-2" style="height: calc(100vh - 100px - 4rem);">
+<main class="w-100 flex-1 d-flex flex-column overflow-auto w-100 bg-150 shadow-sm rounded-3 px-3 py-2">
     <h1><?= $title ?></h1>
     
     <div class="flex-1 d-flex flex-column justify-content-center align-items-center">
-        <form class="bg-100 rounded-3 p-3" method="POST" action="index.php?p=login">
+        <form class="bg-100 shadow-sm rounded-3 p-3" method="POST" action="index.php?p=login" style="min-width: 30%">
             <div class="mb-3">
                 <label for="username" class="form-label">Identifiant</label>
                 <input type="text" class="form-control" id="username" name="username">

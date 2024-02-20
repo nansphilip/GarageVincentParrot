@@ -36,8 +36,9 @@
 
 <?php else: ?>
 
-    <p>An error happened...</p>
+    <p class="mb-0">An error happened.</p>
     <p>Please contact the administrator.</p>
+    <a class="btn btn-primary" href="index.php">Retour Accueil</a>
     
 <?php endif; ?>
 

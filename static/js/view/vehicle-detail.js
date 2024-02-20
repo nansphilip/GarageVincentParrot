@@ -13,11 +13,14 @@ const insertVehicle = (data) => {
 
         data.forEach(element => {
 
+            element.price = Helpers.formatNumber(element.price);
+            element.mileage = Helpers.formatNumber(element.mileage);
+
             const cardElement = document.createElement('div');
             cardElement.className = "col-6 col-lg-3";
 
             cardElement.innerHTML = `
-                <div class="card border border-0">
+                <div class="card shadow-sm border border-0">
                     <img class="card-img-top" src="/static/img/vehicle/${element.imagePath}" alt="Photo ${element.brand} ${element.model}">
                     <div class="card-body p-2 d-flex flex-column justify-content-between">
                         <h5 class="card-title">${element.brand} ${element.model}</h5>
@@ -27,7 +30,7 @@ const insertVehicle = (data) => {
                         </ul>
                         <div class="d-flex flex-row flex-wrap justify-content-between align-items-center">
                             <p class="fs-5 fw-semibold mb-0">${element.price} €</p>
-                            <a href="index.php?p=quote-request&id=${element.id}" class="btn btn-primary stretched-link">Devis</a>
+                            <a href="index.php?p=quote-request&vehicle=${element.id}" class="btn btn-primary stretched-link">Devis</a>
                         </div>
                     </div>
                 </div>
@@ -37,6 +40,41 @@ const insertVehicle = (data) => {
         });
     }
 }
+
+const setPlaceholder = () => {
+    const container = document.querySelector("#insert-ajax");
+    container.innerHTML = "";
+
+    for (let i = 0; i < 7; i++) {
+        const cardPlaceholder = document.createElement('div');
+        cardPlaceholder.className = "col-6 col-lg-3";
+
+        cardPlaceholder.innerHTML = `
+            <div class="card border shadow-sm border-0" aria-hidden="true">
+                <svg class="bd-placeholder-img card-img-top" style="height: 12rem;">
+                    <rect width="100%" height="100%" fill="var(--bs-gray-500)"></rect>
+                </svg>
+                <div class="card-body p-2">
+                    <h5 class="card-title placeholder-glow">
+                        <span class="placeholder col-6"></span>
+                    </h5>
+                    <p class="card-text placeholder-glow">
+                        <span class="placeholder col-6"></span>
+                        <span class="placeholder col-4"></span>
+                        <span class="placeholder col-4"></span>
+                        <span class="placeholder col-3"></span>
+                    </p>
+                    <p class="card-text placeholder-glow d-flex justify-content-between align-items-center">
+                        <span class="placeholder col-4 fs-5"></span>
+                        <a class="btn btn-primary disabled placeholder col-3" aria-disabled="true"></a>
+                    </p>
+                </div>
+            </div>
+        `;
+
+        container.appendChild(cardPlaceholder);
+    }
+};
 
 const ajaxFormRequest = (formEl, url) => {
 
@@ -53,13 +91,21 @@ const ajaxFormRequest = (formEl, url) => {
 
 // Import Ajax class
 import Ajax from "/static/js/common/Ajax.js";
+import Helpers from "/static/js/common/Helpers.js";
 
 // Fetches vehicles cards
 const formEl = document.querySelector("#filter-form");
 
-window.addEventListener('load', () => ajaxFormRequest(formEl, "index.php?a=async/ajax-vehicle"));
-formEl.addEventListener('change', () => ajaxFormRequest(formEl, "index.php?a=async/ajax-vehicle"));
-
+window.addEventListener('load', () => {
+    setPlaceholder();
+    // setTimeout is used to simulate real loading time
+    setTimeout(() => ajaxFormRequest(formEl, "index.php?a=async/ajax-vehicle"), 500)
+});
+formEl.addEventListener('change', () => {
+    setPlaceholder();
+    // setTimeout is used to simulate real loading time
+    setTimeout(() => ajaxFormRequest(formEl, "index.php?a=async/ajax-vehicle"), 300)
+});
 
 
 

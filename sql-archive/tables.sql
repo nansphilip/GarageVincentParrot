@@ -3,7 +3,7 @@ CREATE TABLE `user` (
     `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `username` varchar(50) NOT NULL UNIQUE,
     `password` varchar(255) NOT NULL,
-    `user_type` varchar(255) NOT NULL DEFAULT 'EMPLOYEE', -- EMPLOYEE or ADMIN
+    `user_type` ENUM('ADMIN', 'DIRECTOR', 'EMPLOYEE') NOT NULL DEFAULT 'EMPLOYEE',
     `email` varchar(255) UNIQUE
 );
 
@@ -14,26 +14,26 @@ CREATE TABLE `vehicle` (
     `entry_year` year NOT NULL,
     `mileage` int NOT NULL,
     `price` int NOT NULL,
-    `imagePath` varchar(255) NOT NULL -- image-name.extension
+    `imagePath` varchar(255) NOT NULL -- image_name.webp
 );
 
-CREATE TABLE `quote_request` (
-    `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `first_name` varchar(50) NOT NULL,
-    `last_name` varchar(50) NOT NULL,
-    `email` varchar(255) NOT NULL,
-    `phone` varchar(10) NOT NULL,
-    `message` varchar(3000) NOT NULL,
-    `id_vehicle` int DEFAULT NULL, -- If quote request is about a vehicle
-    FOREIGN KEY (`id_vehicle`) REFERENCES `vehicle` (`id`)
-);
+-- CREATE TABLE `quote_request` (
+--     `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--     `first_name` varchar(50) NOT NULL,
+--     `last_name` varchar(50) NOT NULL,
+--     `email` varchar(255) NOT NULL,
+--     `phone` varchar(10) NOT NULL,
+--     `message` varchar(3000) NOT NULL,
+--     `id_vehicle` int DEFAULT NULL, -- If quote request is about a vehicle
+--     FOREIGN KEY (`id_vehicle`) REFERENCES `vehicle` (`id`)
+-- );
 
 CREATE TABLE `customer_review` (
     `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `full_name` varchar(100) NOT NULL,
     `review` varchar(3000) NOT NULL,
-    `rating` int NOT NULL CHECK(`rating` BETWEEN 0 AND 5), -- Rating from 0 to 5
-    `approved` TINYINT(1) NOT NULL DEFAULT 0 -- Boolean : 0 non approved, 1 approved
+    `rating` int NOT NULL CHECK(`rating` BETWEEN 0 AND 5),
+    `approved` ENUM('APPROVED', 'PENDING', 'DENIED') NOT NULL DEFAULT 'PENDING'
 );
 
 CREATE TABLE `service` (

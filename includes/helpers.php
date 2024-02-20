@@ -1,24 +1,38 @@
 <?php
 
+// Format numbers
+function formatNumber($number, $decimals = 0, $locale = 'fr_FR')
+{
+    $formatter = new NumberFormatter($locale, NumberFormatter::DECIMAL);
+    $formatter->setAttribute(NumberFormatter::MIN_FRACTION_DIGITS, $decimals);
+    $formatter->setAttribute(NumberFormatter::MAX_FRACTION_DIGITS, $decimals);
+    return $formatter->format($number);
+}
+
 // Verifies type before inserting into the database
-function dbFormatInt($value) {
+function dbFormatInt($value)
+{
     return is_int($value) ? $value : null;
 }
 
-function dbFormatFloat($value) {
+function dbFormatFloat($value)
+{
     return is_float($value) ? $value : null;
 }
 
-function dbFormatString($value) {
+function dbFormatString($value)
+{
     return is_string($value) && trim($value) ? trim($value) : null;
 }
 
-function dbFormatBoolean($value) {
+function dbFormatBoolean($value)
+{
     return is_bool($value) || in_array($value, [0, 1]) ? boolval($value) : null;
 }
 
 // Displays errors
-function dd($data, $die = true) {
+function dd($data, $die = true)
+{
     $debug = debug_backtrace();
     echo "<pre style='margin-left: 0.5rem; margin-bottom: 0.5rem;'>";
     echo "<b>" . gettype($data) . "</b> | line " . $debug[0]["line"] . " | <span style='color: #0070c3; font-weight: bold;'>" . $debug[0]["file"] . "</span>";

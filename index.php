@@ -19,23 +19,31 @@ try {
     // date_default_timezone_set("UTC");
 
     // Comments this line to switch to production mode
+    // define("ENVIRONMENT", "PROD");
     define("ENVIRONMENT", "DEV");
 
-    // Router
+    // ROUTER
     if (array_key_exists("p", $_GET)) {
+        // Valid page name
         $page = $_GET["p"];
     } else if (array_key_exists("a", $_GET)) {
+        // AJAX requests
         $page = $_GET["a"];
         header('Content-Type: application/json');
         $returnJson = true;
     } else {
+        // Invalid page name
         $page = "home";
     }
     
     $controllerPath = "controller/$page.php";
 
     if (file_exists($controllerPath)) {
+
+        // Launches session
         session_start();
+
+        // Opens the controller
         require_once($controllerPath);
     } else {
         throw new Exception("Error 404: given controller '$page' is not found");

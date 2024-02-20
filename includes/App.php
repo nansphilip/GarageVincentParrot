@@ -63,6 +63,7 @@
  */
 class App {
     public static $pageTitle;
+    public static $pageDescription;
     public static $staticFileList = [];
 
     // Checks if a given file exists in the file system
@@ -73,6 +74,11 @@ class App {
     // Sets the title for the current web page
     public static function setTitle($title) {
         self::$pageTitle = $title;
+    }
+
+    // Sets the description for the current web page
+    public static function setDescription($description) {
+        self::$pageDescription = $description;
     }
 
     // Loads a PHP template file and extracts variables for use within the template

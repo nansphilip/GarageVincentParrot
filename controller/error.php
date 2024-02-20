@@ -1,6 +1,7 @@
 <?php
 
 // PROCESS
+App::setTitle("Error");
 
 // VARIABLES
 $tplVarList = [];

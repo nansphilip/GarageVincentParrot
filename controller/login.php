@@ -1,13 +1,15 @@
 <?php
 
-// PROCESS
+// Redirects to the dashboard if already connected
 $alreadyConnected = $_SESSION['connected'] ?? false;
 if ($alreadyConnected) {
     header('Location: /index.php?p=edition');
     exit();
 }
 
-// Sets the page title.
+// PROCESS
+
+// Sets the page meta
 $title = "Se connecter";
 App::setTitle($title);
 
@@ -16,6 +18,7 @@ $connected;
 $username;
 $password;
 
+// Connection after form submitted
 if (isset($_POST['login'])) {
     $username = htmlspecialchars($_POST['username']);
     $password = htmlspecialchars($_POST['password']);

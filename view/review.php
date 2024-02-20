@@ -2,30 +2,72 @@
 
 <?php App::getTemplate("component/header", $tplVarList); ?>
 
-<main class="w-100 flex-1 d-flex flex-column overflow-hidden w-100 bg-150 rounded-3 p-3">
+<main class="w-100 flex-1 d-flex flex-column gap-3 overflow-hidden w-100 bg-150 rounded-3 p-3">
 
-    <div class="d-flex justify-content-between align-items-center mb-2">
-        <h1 class="mb-0"><?= $title ?></h1>
-        <button class="btn btn-primary" type="button">Déposer un avis</button>
+    <div class="accordion">
+        <div class="accordion-item" style="background-color: transparent; border: none;">
+            <div class="accordion-header d-flex justify-content-between align-items-center mb-2">
+                <h1 class="mb-0"><?= $title ?></h1>
+                <button class="btn btn-primary <?php if ($sendConfirmation) echo "d-none" ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBody">Déposer un avis</button>
+            </div>
+
+            <div class="<?php if (!$sendConfirmation) echo "d-none" ?>">
+                <div class="alert alert-success py-2 mb-0" role="alert">Avis envoyé avec succès ! Il sera vérifié avant publication.</div>
+            </div>
+
+            <div id="collapseBody" class="collapse <?php if (array_key_exists("show", $_GET)) echo 'show' ?> bg-100 shadow-sm rounded-3 p-2">
+                <form class="bg-100 rounded-3 p-3" method="POST" action="index.php?p=review">
+                    <h5>Rédiger un avis</h5>
+                    <div class="row g-3">
+                        <div class="col-md">
+                            <label for="firstName" class="form-label">Prénom</label>
+                            <input type="text" class="form-control" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="col-md">
+                            <label for="lastName" class="form-label">Nom</label>
+                            <input type="text" class="form-control" id="lastName" name="lastName" required>
+                        </div>
+                        <div class="col-md d-flex flex-column justify-content-start align-items-start gap-2 mb-3">
+                            <p class="mb-0">Note</p>
+                            <div id="radio-rating" class="btn-group bg-white border">
+                                <input type="radio" class="btn-check" name="rating" id="star-1" value="1" required>
+                                <label class="btn border border-0" for="star-1"><i class="bi bi-star" style="color: var(--bs-gray)"></i></label>
+                                <input type="radio" class="btn-check" name="rating" id="star-2" value="2">
+                                <label class="btn border border-0" for="star-2"><i class="bi bi-star" style="color: var(--bs-gray)"></i></label>
+                                <input type="radio" class="btn-check" name="rating" id="star-3" value="3">
+                                <label class="btn border border-0" for="star-3"><i class="bi bi-star" style="color: var(--bs-gray)"></i></label>
+                                <input type="radio" class="btn-check" name="rating" id="star-4" value="4">
+                                <label class="btn border border-0" for="star-4"><i class="bi bi-star" style="color: var(--bs-gray)"></i></label>
+                                <input type="radio" class="btn-check" name="rating" id="star-5" value="5">
+                                <label class="btn border border-0" for="star-5"><i class="bi bi-star" style="color: var(--bs-gray)"></i></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <div class="d-flex flex-row justify-content-center">
+                        <button type="submit" name="send-review" class="btn btn-primary">Envoyer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
     <div class="flex-1 overflow-x-hidden overflow-y-auto">
         <div class="row g-3" data-masonry='{"percentPosition": true }'>
             <?php foreach ($reviewList as $review) : ?>
                 <div class="col-md-6 col-lg-4">
-                    <div class="bg-white rounded-3 p-2">
+                    <div class="bg-white rounded-3 shadow-sm p-2">
                         <div class="d-flex justify-content-between align-items-baseline">
                             <h5 class="mb-0"><?= $review->fullName ?></h5>
                             <h5 class="mb-0 d-flex flex-row align-items-center" style="gap: 2px;">
-                                <?php for ($i = 0; $i < (5 - $review->rating); $i++) : ?>
-                                    <svg height="1.1rem" width="1.1rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.94 47.94">
-                                        <path style="fill: none; stroke: var(--bs-gray-500); stroke-width:3;" d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757  c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042  c0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685  c-1.894,0.996-4.108-0.613-3.746-2.722l2.065-12.042c0.144-0.837-0.134-1.692-0.742-2.285l-8.749-8.528  c-1.532-1.494-0.687-4.096,1.431-4.403l12.091-1.757c0.841-0.122,1.568-0.65,1.944-1.412l5.407-10.956  C22.602,0.567,25.338,0.567,26.285,2.486z" />
-                                    </svg>
-                                <?php endfor; ?>
                                 <?php for ($i = 0; $i < $review->rating; $i++) : ?>
-                                    <svg height="1.1rem" width="1.1rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.94 47.94">
-                                        <path style="fill: var(--bs-gray-500); stroke: var(--bs-gray-500); stroke-width:3;" d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757  c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042  c0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685  c-1.894,0.996-4.108-0.613-3.746-2.722l2.065-12.042c0.144-0.837-0.134-1.692-0.742-2.285l-8.749-8.528  c-1.532-1.494-0.687-4.096,1.431-4.403l12.091-1.757c0.841-0.122,1.568-0.65,1.944-1.412l5.407-10.956  C22.602,0.567,25.338,0.567,26.285,2.486z" />
-                                    </svg>
+                                    <i class="bi bi-star-fill" style="color: var(--bs-gray)"></i>
+                                <?php endfor; ?>
+                                <?php for ($i = 0; $i < (5 - $review->rating); $i++) : ?>
+                                    <i class="bi bi-star" style="color: var(--bs-gray)"></i>
                                 <?php endfor; ?>
                             </h5>
                         </div>
