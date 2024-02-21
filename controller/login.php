@@ -13,6 +13,9 @@ if ($alreadyConnected) {
 $title = "Se connecter";
 App::setTitle($title);
 
+require_once('model/Schedule.php');
+$scheduleList = Schedule::getAll();
+
 // Login form
 $connected;
 $username;
@@ -40,6 +43,7 @@ if (isset($_POST['login'])) {
 $tplVarList = [];
 $tplVarList["title"] = $title;
 $tplVarList["connectionFailed"] = false;
+$tplVarList["scheduleList"] = $scheduleList;
 
 // Connection denied/failed
 if (isset($connected) && !$connected) {

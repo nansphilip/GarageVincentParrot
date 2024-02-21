@@ -50,9 +50,38 @@ class Admin extends Employee {
 
     public function updateSchedules() {}
 
+    public static function addEmployee($email, $username, $password) {
+        
+        $email = dbFormatString($email);
+        $username = dbFormatString($username);
+        $password = dbFormatString($password);
+
+        // Checks email is not already used
+        $sql = 'SELECT * FROM user WHERE email = :email';
+        $bindList = [':email' => $email];
+        $userExists = Database::query($sql, $bindList);
+        if ($userExists != null) return 'email';
+        
+        // Checks username is not already used
+        $sql = 'SELECT * FROM user WHERE username = :username';
+        $bindList = [':username' => $username];
+        $userExists = Database::query($sql, $bindList);
+        if ($userExists != null) return 'username';
+
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        
+        $sql = 'INSERT INTO user (email, username, password, user_type) VALUES (:email, :username, :password, "EMPLOYEE")';
+        $bindList = [':email' => $email, ':username' => $username, ':password' => $password];
+
+        Database::query($sql, $bindList);
+        return false;
+    }
+
     public static function getAllEmployee() {
         $data = Database::query("SELECT * FROM user WHERE user_type = 'EMPLOYEE'");
 
+        if ($data == null) return null;
+        
         $instanceList = [];
 
         foreach ($data as $value) {

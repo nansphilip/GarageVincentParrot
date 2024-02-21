@@ -4,18 +4,17 @@
             Horaires
         </button>
         <ul class="dropdown-menu list-unstyled mb-0" style="cursor: text; user-select: text;">
-            <li class="dropdown-item-text text-nowrap">Lundi: 8h - 18h</li>
-            <li class="dropdown-item-text text-nowrap">Mardi: 8h - 18h</li>
-            <li class="dropdown-item-text text-nowrap">Mercredi: 8h - 18h</li>
-            <li class="dropdown-item-text text-nowrap">Jeudi: 8h - 18h</li>
-            <li class="dropdown-item-text text-nowrap">Vendredi: 8h - 18h</li>
-            <li class="dropdown-item-text text-nowrap">Samedi: fermé</li>
-            <li class="dropdown-item-text text-nowrap">Dimanche: fermé</li>
+            <li class="dropdown-item-text text-nowrap d-flex flex-row justify-content-between gap-5"><div><?= $scheduleList[0]->day ?></div><div><?= $scheduleList[0]->schedule ?></div></li>
+            <li class="dropdown-item-text text-nowrap d-flex flex-row justify-content-between gap-5"><div><?= $scheduleList[1]->day ?></div><div><?= $scheduleList[1]->schedule ?></div></li>
+            <li class="dropdown-item-text text-nowrap d-flex flex-row justify-content-between gap-5"><div><?= $scheduleList[2]->day ?></div><div><?= $scheduleList[2]->schedule ?></div></li>
+            <li class="dropdown-item-text text-nowrap d-flex flex-row justify-content-between gap-5"><div><?= $scheduleList[3]->day ?></div><div><?= $scheduleList[3]->schedule ?></div></li>
+            <li class="dropdown-item-text text-nowrap d-flex flex-row justify-content-between gap-5"><div><?= $scheduleList[4]->day ?></div><div><?= $scheduleList[4]->schedule ?></div></li>
+            <li class="dropdown-item-text text-nowrap d-flex flex-row justify-content-between gap-5"><div><?= $scheduleList[5]->day ?></div><div><?= $scheduleList[5]->schedule ?></div></li>
+            <li class="dropdown-item-text text-nowrap d-flex flex-row justify-content-between gap-5"><div><?= $scheduleList[6]->day ?></div><div><?= $scheduleList[6]->schedule ?></div></li>
         </ul>
     </div>
 
     <div class="">© 2024 Garage Vincent Parrot</div>
-    <div><a class="link-dark link-underline-opacity-0 link-underline-opacity-100-hover" href="index.php?p=login">Se connecter</a></div>
 
     <div class="dropup dropup-center btn btn-light shadow-sm p-0 rounded-3">
         <button class="dropdown-toggle px-3 py-1" style="background-color: transparent; border: none;" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expended="false">

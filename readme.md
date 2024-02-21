@@ -39,8 +39,7 @@ Ce projet est réalisé dans le cadre de mes études de développement web chez 
 
 | Identifiant | Mot de passe |
 | :--- | :--- |
-| admin | admin |
-| director | director |
-| employee1 | employee1 |
-| employee2 | employee2 |
-| employee3 | employee3 |
+| admin | rGz7E!JpTaA? |
+| employee1 | krCi8$jAYd3z |
+| employee2 | krCi8$jAYd3z |
+| employee3 | krCi8$jAYd3z |

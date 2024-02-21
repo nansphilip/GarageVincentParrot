@@ -7,6 +7,9 @@ $title = "Véhicules d'occasion";
 App::setTitle($title);
 App::setDescription("Découvrez notre sélection de véhicules d'occasion. Tous nos véhicules sont révisés et garantis.");
 
+require_once('model/Schedule.php');
+$scheduleList = Schedule::getAll();
+
 // Imports Vehicle class and gets data
 require_once "model/Vehicle.php";
 $brandList = Vehicle::getBrandList();
@@ -20,6 +23,7 @@ $priceRange = Vehicle::getPriceRange();
 $tplVarList = [];
 $tplVarList["title"] = $title;
 $tplVarList["page"] = $page;
+$tplVarList["scheduleList"] = $scheduleList;
 
 $tplVarList["brandList"] = $brandList;
 $tplVarList["modelList"] = $modelList;

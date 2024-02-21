@@ -15,29 +15,17 @@ class Service
         $this->price = $price;
     }
 
-    public function validate()
-    {
-        $this->id = dbFormatInt($this->id);
-        $this->name = dbFormatString($this->name);
-        $this->description = dbFormatString($this->description);
-        $this->price = dbFormatFloat($this->price);
-    }
-
-    public function updateServices()
+    public static function addServices($name, $description, $price)
     {
         // Data from a POST form
-        $service = new Service();
-        $service->id = $_POST["id"];
-        $service->name = $_POST["name"];
-        $service->description = $_POST["description"];
-        $service->price = $_POST["price"];
-        $service->validate();
+        $name = dbFormatString($name);
+        $description = dbFormatString($description);
+        $price = dbFormatInt($price);
 
-        // Updates the data in the database
-        Database::query(
-            "UPDATE service SET name = :name, description = :description, price = :price WHERE id = :id;",
-            [":id" => $this->id, ":name" => $this->name, ":description" => $this->description, ":price" => $this->price]
-        );
+        $sql = 'INSERT INTO service (name, description, price) VALUES (:name, :description, :price)';
+        $bindList = [':name' => $name, ':description' => $description, ':price' => $price];
+
+        Database::query($sql, $bindList);
     }
 
     public static function getAll()

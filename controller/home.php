@@ -19,6 +19,9 @@ $vehicleList = Vehicle::getAll();
 require_once('model/CustomerReview.php');
 $reviewList = CustomerReview::getAllApproved();
 
+require_once('model/Schedule.php');
+$scheduleList = Schedule::getAll();
+
 // VARIABLES
 $tplVarList = [];
 $tplVarList["title"] = $title;
@@ -27,6 +30,7 @@ $tplVarList["page"] = $page;
 $tplVarList["serviceList"] = $serviceList;
 $tplVarList["vehicleList"] = $vehicleList;
 $tplVarList["reviewList"] = $reviewList;
+$tplVarList["scheduleList"] = $scheduleList;
 
 // OUTPUT
 App::getTemplate("home", $tplVarList);

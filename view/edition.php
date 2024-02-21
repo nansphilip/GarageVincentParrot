@@ -26,7 +26,8 @@
     </div>
 
     <div class="flex-1 d-flex flex-column overflow-x-hidden overflow-y-auto">
-        <div class="row g-3" data-masonry='{"percentPosition": true }'>
+        <!-- <div class="row g-3" data-masonry='{"percentPosition": true }'> -->
+        <div class="row g-3">
 
             <section id="addReview" class="col-md-6">
                 <div class="bg-100 shadow-sm rounded-3 p-3">
@@ -117,7 +118,7 @@
                     <div class="<?php if (!$validVehicle) echo "d-none" ?> my-3">
                         <div class="alert alert-success py-2 mb-0" role="alert">Véhicule ajouté avec succès.</div>
                     </div>
-                    <form method="POST" action="index.php?p=edition#addVehicle">
+                    <form method="POST" action="index.php?p=edition#addVehicle" enctype="multipart/form-data">
                         <div class="row g-3 mb-3">
                             <div class="col-6">
                                 <label for="brand" class="form-label">Marque</label>
@@ -140,8 +141,17 @@
                                 <input type="number" class="form-control" id="priceVehicle" name="price" required>
                             </div>
                             <div class="col-12">
-                                <label for="picture" class="form-label">Image</label>
-                                <input type="file" class="form-control" id="picture" name="picture" required>
+                                <div class="d-flex flex-row justify-content-between align-items-end">
+                                    <label for="picture" class="form-label">Image</label>
+                                    <div>
+                                        <p class="mb-0 text-end">Type de fichier : <b>webp</b></p>
+                                        <p class="mb-3 text-end">Format demandé : <b>840 x 700 pixels</b></p>
+                                    </div>
+                                </div>
+
+                                <input type="file" class="form-control mb-2" id="picture" name="picture" required>
+                                <div id="ext-invalid" class="d-none alert alert-danger py-2 mb-0" role="alert">Extension de fichier invalide.</div>
+                                <div id="dim-invalid" class="d-none alert alert-danger py-2 mb-0" role="alert">Dimensions de l'image invalides.</div>
                             </div>
                         </div>
                         <div class="d-flex flex-row justify-content-center">
@@ -161,31 +171,31 @@
                         <div class="row g-3">
                             <div class="col-6">
                                 <label for="monday" class="form-label">Lundi</label>
-                                <input type="text" class="form-control" id="monday" name="monday">
+                                <input type="text" class="form-control" id="monday" name="monday" placeholder="<?= $scheduleList[0]->schedule ?>">
                             </div>
                             <div class="col-6">
                                 <label for="tuesday" class="form-label">Mardi</label>
-                                <input type="text" class="form-control" id="tuesday" name="tuesday">
+                                <input type="text" class="form-control" id="tuesday" name="tuesday" placeholder="<?= $scheduleList[1]->schedule ?>">
                             </div>
                             <div class="col-6">
                                 <label for="wednesday" class="form-label">Mercredi</label>
-                                <input type="text" class="form-control" id="wednesday" name="wednesday">
+                                <input type="text" class="form-control" id="wednesday" name="wednesday" placeholder="<?= $scheduleList[2]->schedule ?>">
                             </div>
                             <div class="col-6">
                                 <label for="thursday" class="form-label">Jeudi</label>
-                                <input type="text" class="form-control" id="thursday" name="thursday">
+                                <input type="text" class="form-control" id="thursday" name="thursday" placeholder="<?= $scheduleList[3]->schedule ?>">
                             </div>
                             <div class="col-6">
                                 <label for="friday" class="form-label">Vendredi</label>
-                                <input type="text" class="form-control" id="friday" name="friday">
+                                <input type="text" class="form-control" id="friday" name="friday" placeholder="<?= $scheduleList[4]->schedule ?>">
                             </div>
                             <div class="col-6">
                                 <label for="saturday" class="form-label">Samedi</label>
-                                <input type="text" class="form-control" id="saturday" name="saturday">
+                                <input type="text" class="form-control" id="saturday" name="saturday" placeholder="<?= $scheduleList[5]->schedule ?>">
                             </div>
                             <div class="col-6">
                                 <label for="sunday" class="form-label">Dimanche</label>
-                                <input type="text" class="form-control" id="sunday" name="sunday">
+                                <input type="text" class="form-control" id="sunday" name="sunday" placeholder="<?= $scheduleList[6]->schedule ?>">
                             </div>
                         </div>
                         <div class="d-flex flex-row justify-content-center">
@@ -195,13 +205,13 @@
                 </div>
             </section>
 
-            <section id="updateService" class="<?php if ($userType == 'EMPLOYEE') echo 'd-none' ?> col-md-6">
+            <section id="addService" class="<?php if ($userType == 'EMPLOYEE') echo 'd-none' ?> col-md-6">
                 <div class="bg-100 shadow-sm rounded-3 p-3">
                     <h5>Ajouter des services</h5>
                     <div class="<?php if (!$validService) echo "d-none" ?> my-3">
                         <div class="alert alert-success py-2 mb-0" role="alert">Services mis à jour.</div>
                     </div>
-                    <form method="POST" action="index.php?p=edition#updateService">
+                    <form method="POST" action="index.php?p=edition#addService">
                         <div class="row g-3">
                             <div class="col-8 mb-3">
                                 <label for="title" class="form-label">Nom du service</label>
@@ -213,12 +223,12 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="messageService" class="form-label">Description</label>
-                            <textarea class="form-control" id="messageService" name="message" rows="2" required></textarea>
+                            <label for="descriptionService" class="form-label">Description</label>
+                            <textarea class="form-control" id="descriptionService" name="description" rows="2" required></textarea>
                         </div>
 
                         <div class="d-flex flex-row justify-content-center">
-                            <button type="submit" name="updateService" class="btn btn-primary">Ajouter</button>
+                            <button type="submit" name="addService" class="btn btn-primary">Ajouter</button>
                         </div>
                     </form>
                 </div>
@@ -254,6 +264,12 @@
                     <h5>Ajouter un compte employé</h5>
                     <div class="<?php if (!$validInscription) echo "d-none" ?> my-3">
                         <div class="alert alert-success py-2 mb-0" role="alert">Utilisateur ajouté avec succès.</div>
+                    </div>
+                    <div class="<?php if ($alreadyUsed != 'email') echo "d-none" ?> my-3">
+                        <div class="alert alert-danger py-2 mb-0" role="alert">Email déjà utilisé.</div>
+                    </div>
+                    <div class="<?php if ($alreadyUsed != 'username') echo "d-none" ?> my-3">
+                        <div class="alert alert-danger py-2 mb-0" role="alert">Identifiant déjà utilisé.</div>
                     </div>
                     <form method="POST" action="index.php?p=edition#addEmployee">
                         <div class="mb-3">
@@ -306,7 +322,5 @@
     </div>
 
 </main>
-
-<?php App::getTemplate("component/footer"); ?>
 
 <?php App::getTemplate("common/document-bottom"); ?>

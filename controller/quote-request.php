@@ -7,6 +7,9 @@ $title = "Demande de devis";
 App::setTitle($title);
 App::setDescription("Demandez un devis pour l'entretien de votre véhicule.");
 
+require_once('model/Schedule.php');
+$scheduleList = Schedule::getAll();
+
 // Import vehicle name if needed
 $vehicle;
 if (array_key_exists("vehicle", $_GET)) {
@@ -21,6 +24,7 @@ if (array_key_exists("vehicle", $_GET)) {
 $tplVarList = [];
 $tplVarList["title"] = $title;
 $tplVarList["page"] = $page;
+$tplVarList["scheduleList"] = $scheduleList;
 
 if (isset($vehicle)) {
     $tplVarList["vehicle"] = $vehicle;

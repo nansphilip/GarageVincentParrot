@@ -79,7 +79,7 @@
     </div>
 </main>
 
-<?php App::getTemplate("component/footer"); ?>
+<?php App::getTemplate("component/footer", $tplVarList); ?>
 
 <script>
     // Transfer PHP variables to JavaScript

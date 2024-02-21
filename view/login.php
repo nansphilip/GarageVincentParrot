@@ -25,6 +25,6 @@
     </div>
 </main>
 
-<?php App::getTemplate("component/footer"); ?>
+<?php App::getTemplate("component/footer", $tplVarList); ?>
 
 <?php App::getTemplate("common/document-bottom"); ?>

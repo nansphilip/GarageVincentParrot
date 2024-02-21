@@ -7,6 +7,9 @@ $title = "Avis clients";
 App::setTitle($title);
 App::setDescription("Découvrez les avis de nos clients sur nos services.");
 
+require_once('model/Schedule.php');
+$scheduleList = Schedule::getAll();
+
 // Imports Customer Review class
 require_once('model/CustomerReview.php');
 $reviewList = CustomerReview::getAllApproved();
@@ -32,6 +35,8 @@ $tplVarList["title"] = $title;
 $tplVarList["page"] = $page;
 $tplVarList["reviewList"] = $reviewList;
 $tplVarList["sendConfirmation"] = $sendConfirmation;
+$tplVarList["scheduleList"] = $scheduleList;
+
 
 // OUTPUT
 App::setJs("view/review.js");

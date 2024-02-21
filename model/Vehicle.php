@@ -21,6 +21,22 @@ class Vehicle
         $this->imagePath = $imagePath;
     }
 
+    public static function addVehicle($brand, $model, $entryYear, $mileage, $price, $imagePath)
+    {
+        $brand = dbFormatString($brand);
+        $model = dbFormatString($model);
+        $entryYear = dbFormatInt($entryYear);
+        $mileage = dbFormatInt($mileage);
+        $price = dbFormatInt($price);
+        $imagePath = dbFormatString($imagePath);
+
+        $sql = "INSERT INTO vehicle (brand, model, entry_year, mileage, price, imagePath) VALUES (:brand, :model, :entryYear, :mileage, :price, :imagePath);";
+        $bindValues = [":brand" => $brand, ":model" => $model, ":entryYear" => $entryYear, ":mileage" => $mileage, ":price" => $price, ":imagePath" => $imagePath];
+        
+        // Inserts the data into the database
+        Database::query($sql, $bindValues);
+    }
+
     public static function getBrandList()
     {
 
