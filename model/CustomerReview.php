@@ -1,13 +1,15 @@
 <?php
 
-class CustomerReview {
+class CustomerReview
+{
     public $id;
     public $fullName;
     public $review;
     public $rating;
     public $approved;
 
-    public function __construct($id, $fullName, $review, $rating, $approved) {
+    public function __construct($id, $fullName, $review, $rating, $approved)
+    {
         $this->id = $id;
         $this->fullName = $fullName;
         $this->review = $review;
@@ -15,7 +17,8 @@ class CustomerReview {
         $this->approved = $approved;
     }
 
-    public function validate() {
+    public function validate()
+    {
         $this->id = dbFormatInt($this->id);
         $this->fullName = dbFormatString($this->fullName);
         $this->review = dbFormatString($this->review);
@@ -23,9 +26,12 @@ class CustomerReview {
         $this->approved = dbFormatInt($this->approved);
     }
 
-    public function approveReview() {}
-    
-    public function sendReview() {
+    public function approveReview()
+    {
+    }
+
+    public function sendReview()
+    {
         $this->validate();
 
         $sql = "INSERT INTO customer_review (full_name, review, rating, approved) VALUES (:full_name, :review, :rating, :approved)";
@@ -33,8 +39,9 @@ class CustomerReview {
 
         Database::query($sql, $bindValues);
     }
-    
-    public function sendAndApproveReview() {
+
+    public function sendAndApproveReview()
+    {
         $this->validate();
 
         $sql = "INSERT INTO customer_review (full_name, review, rating, approved) VALUES (:full_name, :review, :rating, :approved)";
@@ -43,30 +50,38 @@ class CustomerReview {
         Database::query($sql, $bindValues);
     }
 
-    private function sendEmailToAdmin() {}
+    private function sendEmailToAdmin()
+    {
+    }
 
-    public static function getAllPending() {
+    public static function getAllPending()
+    {
 
         // Gets the data from the database
         $data = Database::query("SELECT * FROM customer_review WHERE approved = 'PENDING' ORDER BY id DESC;");
 
-        $instanceList = [];
+        if (isset($data)) {
+            $instanceList = [];
 
-        // Returns a new instance of the class for each row
-        foreach ($data as $value) {
-            $instanceList[] = new self(
-                $value["id"],
-                $value["full_name"],
-                $value["review"],
-                $value["rating"],
-                $value["approved"],
-            );
+            // Returns a new instance of the class for each row
+            foreach ($data as $value) {
+                $instanceList[] = new self(
+                    $value["id"],
+                    $value["full_name"],
+                    $value["review"],
+                    $value["rating"],
+                    $value["approved"],
+                );
+            }
+
+            return $instanceList;
+        } else {
+            return null;
         }
-
-        return $instanceList;
     }
 
-    public static function getAllApproved() {
+    public static function getAllApproved()
+    {
 
         // Gets the data from the database
         $data = Database::query("SELECT * FROM customer_review WHERE approved = 'APPROVED' ORDER BY id DESC;");

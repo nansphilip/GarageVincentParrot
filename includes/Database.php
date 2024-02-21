@@ -7,9 +7,9 @@ class Database
     private static function init()
     {
         // TODO: connect to database from the credentials in `config.ini`
-        $database_dsn = 'mysql:host=localhost;dbname=ultra-motor-db';
-        $database_user = 'ultra-motor-user';
-        $database_password = 'ultra-motor-password';
+        $database_dsn = 'mysql:host=localhost;dbname=garage-vincent-parrot-db';
+        $database_user = 'garage-vincent-parrot-user';
+        $database_password = 'garage-vincent-parrot-password';
 
         try {
             self::$pdo = new PDO($database_dsn, $database_user, $database_password);

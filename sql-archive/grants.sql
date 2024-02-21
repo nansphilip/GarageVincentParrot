@@ -1,10 +1,10 @@
 -- Allows user to connect to database
-GRANT USAGE ON *.* TO 'ultra-motor-user'@'localhost';
+GRANT USAGE ON *.* TO 'garage-vincent-parrot-user'@'localhost';
 
 -- Adds grants on each tables
-GRANT SELECT ON `ultra-motor-db`.`user` TO 'ultra-motor-user'@'localhost';
-GRANT SELECT ON `ultra-motor-db`.`vehicle` TO 'ultra-motor-user'@'localhost';
--- GRANT INSERT ON `ultra-motor-db`.`quote_request` TO 'ultra-motor-user'@'localhost';
-GRANT SELECT, INSERT ON `ultra-motor-db`.`customer_review` TO 'ultra-motor-user'@'localhost';
-GRANT SELECT, INSERT, UPDATE, DELETE ON `ultra-motor-db`.`service` TO 'ultra-motor-user'@'localhost';
-GRANT SELECT, INSERT, UPDATE, DELETE ON `ultra-motor-db`.`schedule` TO 'ultra-motor-user'@'localhost';
+GRANT SELECT ON `garage-vincent-parrot-db`.`vehicle` TO 'garage-vincent-parrot-user'@'localhost';
+-- GRANT INSERT ON `garage-vincent-parrot-db`.`quote_request` TO 'garage-vincent-parrot-user'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON `garage-vincent-parrot-db`.`customer_review` TO 'garage-vincent-parrot-user'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON `garage-vincent-parrot-db`.`schedule` TO 'garage-vincent-parrot-user'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON `garage-vincent-parrot-db`.`user` TO 'garage-vincent-parrot-user'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON `garage-vincent-parrot-db`.`service` TO 'garage-vincent-parrot-user'@'localhost';

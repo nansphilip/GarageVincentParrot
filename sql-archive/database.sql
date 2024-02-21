@@ -1,8 +1,8 @@
 -- Creates a database
-CREATE DATABASE `ultra-motor-db`;
+CREATE DATABASE `garage-vincent-parrot-db`;
 
 -- Selects the new database
-USE `ultra-motor-db`;
+USE `garage-vincent-parrot-db`;
 
 -- Creates an user and a password
-CREATE USER 'ultra-motor-user'@'localhost' IDENTIFIED BY 'ultra-motor-password';
+CREATE USER 'garage-vincent-parrot-user'@'localhost' IDENTIFIED BY 'garage-vincent-parrot-password';

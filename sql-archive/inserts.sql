@@ -1,7 +1,7 @@
 -- Creates data
 INSERT INTO `user` (`username`, `password`, `user_type`, `email`) VALUES
 ('admin', '$2y$10$v.fJ0zb3pJxcWlGd3aFAruyhImYpPyrFkWo1E11V.xqVkIRpGJdnm', 'ADMIN', 'admin@example.com'),
-('director', '$2y$10$L7QAxV5ue4jp72wGuPSqLO9JronvQnjIupb02NT.BbCJSIMiAvAWK', 'DIRECTOR', 'director@example.com'),
+-- ('director', '$2y$10$L7QAxV5ue4jp72wGuPSqLO9JronvQnjIupb02NT.BbCJSIMiAvAWK', 'DIRECTOR', 'director@example.com'),
 ('employee1', '$2y$10$n6U79FbwZTfN/HxVEd6NTeDoc/8AIzjFIIj762KeiA1oe4sw4ZS4a', 'EMPLOYEE', 'employee1@example.com'),
 ('employee2', '$2y$10$QYMQC8AxAXA3be0HWQBkOeKT/WmnSXv206IJSvIAaIkpktLl14Roe', 'EMPLOYEE', 'employee2@example.com'),
 ('employee3', '$2y$10$9URsetdNuysedS2zCJqJjO9GpE4EkiaTo7VZ0IFHa46Owu8wkPF9.', 'EMPLOYEE', 'employee3@example.com');

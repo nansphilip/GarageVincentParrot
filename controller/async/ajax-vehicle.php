@@ -6,11 +6,6 @@ $data = null;
 
 // PROCESS
 
-// TODO: add validation like this on all ajax and controllers
-// if (!$_POST["brand"] || !$_POST["model"]) {
-//     throw new Exception("Invalid POST parameters");
-// }
-
 // Fetches the data from the form sent by the ajax client request
 $formSelect = [
     'brand' => $_POST['brand'] == "" ? null : $_POST['brand'],
@@ -57,17 +52,6 @@ foreach ($formMax as $key => $value) {
 
 // Builds the SQL query with bind values
 $sql = "SELECT * FROM vehicle WHERE" . $conditionList;
-
-// TODO: To try:
-// $sql = "
-//     SELECT *
-//     FROM vehicle
-//     WHERE
-//         (:id_brand IS NOT NULL OR id_brand = :id_brand)
-//         AND (:id_model IS NOT NULL OR id_model = :id_model)
-//         AND (:min_mileage IS NOT NULL AND :max_mileage IS NOT NULL)
-//         OR id_model BETWEEN :min_mileage AND :max_mileage...
-// ";
 
 $data = Database::query($sql, $bindList);
 

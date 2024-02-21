@@ -13,17 +13,11 @@
 ## Quote request
 
 - Envoyer un mail validation à l'utilisateur ?
-- Envoyer un mail à une adresse commune `devis@ultra-motor.fr`
+- Envoyer un mail à une adresse commune `devis@garage-vincent-parrot.fr`
 
 ## Edition
 
-- Insert review
-- Approve or delete review (button)
-
-- Update schedule (input field)
-
-- Insert services (bouton add input)
-- Update services (input field)
+- Modale validation
 
 ## Se connecter
 
@@ -40,6 +34,8 @@
 - Cohérence des interfaces :
   - margin, padding, gap, gutters
   - d-flex, flex-row...
+
+- Vérifier ce qui se passe si les tables sont vides
 
 ## Publication Netlify
 

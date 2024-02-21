@@ -24,19 +24,20 @@ export default class Ajax {
         }
     }
 
-    static async reviewApprovementRequest(idReview, action, url) {
+    static async updateRequest(idData, actionData, tableData, ajaxUrl) {
         try {
 
             const formData = new FormData();
 
-            formData.append("idReview", idReview);
-            formData.append("action", action);
+            formData.append("id", idData);
+            formData.append("action", actionData);
+            formData.append("table", tableData);
 
             formData.forEach((value, key) => {
                 console.log(`${key}:`, value);
             });
 
-            const response = await fetch(url, {
+            const response = await fetch(ajaxUrl, {
                 method: "POST",
                 body: formData,
             });

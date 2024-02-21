@@ -14,7 +14,7 @@
         </ul>
     </div>
 
-    <div class="">© 2024 Ultra Motor</div>
+    <div class="">© 2024 Garage Vincent Parrot</div>
     <div><a class="link-dark link-underline-opacity-0 link-underline-opacity-100-hover" href="index.php?p=login">Se connecter</a></div>
 
     <div class="dropup dropup-center btn btn-light shadow-sm p-0 rounded-3">
@@ -22,10 +22,10 @@
             Coordonnées
         </button>
         <ul class="dropdown-menu list-unstyled mb-0">
-            <li class="dropdown-item-text fw-semibold">Ultra Motor</li>
+            <li class="dropdown-item-text fw-semibold">Garage Vincent Parrot</li>
             <li class="dropdown-item d-flex flex-row gap-3 justify-content-start align-item-center">
                 <i class="bi bi-box-arrow-up-right"></i>
-                <a class="link-dark link-underline-opacity-0" target="_blank" href="https://maps.app.goo.gl/nxo5CgP3k4kAYfnw7">123 Rue de la République<br>13002 Marseille</a>
+                <a class="link-dark link-underline-opacity-0" target="_blank" href="https://maps.app.goo.gl/ugdbR4F9BV51pYGx5">123 Rue de la République<br>31300 Toulouse</a>
             </li>
             <li class="dropdown-item d-flex flex-row gap-3 justify-content-start align-item-center">
                 <i class="bi bi-box-arrow-up-right"></i>

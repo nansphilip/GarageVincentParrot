@@ -5,7 +5,7 @@
 // Sets page title.
 $title = "Accueil";
 App::setTitle($title);
-App::setDescription("Bienvenue chez Ultra Motor, votre concessionnaire automobile à Marseille. Découvrez notre sélection de véhicules d'occasion et nos services de qualité.");
+App::setDescription("Bienvenue au Garage Vincent Parrot, votre concessionnaire automobile à Toulouse. Découvrez notre sélection de véhicules d'occasion et nos services de qualité.");
 
 // Imports Service class and gets data
 require_once("model/Service.php");

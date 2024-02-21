@@ -1,32 +1,30 @@
-const ajaxApprovementRequest = (idReview, action, url) => {
-
-    Ajax.reviewApprovementRequest(idReview, action, url).then(response => {
-        if (response.success) {
-            // Show success message
-        } else {
-            const modalEl = document.querySelector('.modal');
-            let modal = new bootstrap.Modal(modalEl);
-            modal.show();
-        }
-    });
-}
-
 // Import Ajax class
 import Ajax from "/static/js/common/Ajax.js";
 
-let approveButtonList = document.querySelectorAll('.approve-button');
-let denyButtonList = document.querySelectorAll('.deny-button');
+// Button selector
+const buttonList = document.querySelectorAll('.ajax-button');
+const ajaxUrl = "index.php?a=async/ajax-update";
 
-approveButtonList.forEach(approveButton => {
-    approveButton.addEventListener('click', () => {
-        const idReview = approveButton.getAttribute('data-id');
-        ajaxApprovementRequest(idReview, 'approve', "index.php?a=async/ajax-review");
+buttonList.forEach(button => {
+    button.addEventListener('click', () => {
+        // Get data attributes
+        const idData = button.getAttribute('data-id');
+        const actionData = button.getAttribute('data-action');
+        const tableData = button.getAttribute('data-table');
+
+        Ajax.updateRequest(idData, actionData, tableData, ajaxUrl).then(response => {
+            if (response.success) {
+                const parentElement = button.closest('.parent-element');
+                parentElement.remove();
+            } else {
+                const ajaxFailModalEl = document.querySelector('.ajax-fail-modal');
+                let modal = new bootstrap.Modal(ajaxFailModalEl);
+                modal.show();
+            }
+        });
     });
 });
 
-denyButtonList.forEach(denyButton => {
-    denyButton.addEventListener('click', () => {
-        const idReview = denyButton.getAttribute('data-id');
-        ajaxApprovementRequest(idReview, 'deny', "index.php?a=async/ajax-review");
-    });
-});
+
+import Functions from '/static/js/common/Functions.js';
+Functions.starFormRating();

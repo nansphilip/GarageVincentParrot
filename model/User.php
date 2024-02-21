@@ -1,7 +1,6 @@
 <?php
 
 class User {
-    public $connectStatus = false;
 
     public static function login($username, $password) {
 
@@ -27,12 +26,18 @@ class User {
 }
 
 class Employee extends User {
-    public $connectStatus = true;
-    public $userType = "employee";
-
+    
     public $id;
     public $username;
-    // public $password;
+    public $email;
+    public $password;
+
+    public function __construct($id, $username, $email, $password = null) {
+        $this->id = $id;
+        $this->username = $username;
+        $this->email = $email;
+        $this->password = $password;
+    }
     
     public function approveReview() {}
 
@@ -40,10 +45,24 @@ class Employee extends User {
 }
 
 class Admin extends Employee {
-    public $userType = "admin";
-    public $email;
 
     public function updateServices() {}
 
     public function updateSchedules() {}
+
+    public static function getAllEmployee() {
+        $data = Database::query("SELECT * FROM user WHERE user_type = 'EMPLOYEE'");
+
+        $instanceList = [];
+
+        foreach ($data as $value) {
+            $instanceList[] = new self(
+                $value["id"],
+                $value["username"],
+                $value["email"]
+            );
+        }
+
+        return $instanceList;
+    }
 }
