@@ -19,8 +19,8 @@ try {
     // date_default_timezone_set("UTC");
 
     // Comments this line to switch to production mode
-    // define("ENVIRONMENT", "PROD");
-    define("ENVIRONMENT", "DEV");
+    define("ENVIRONMENT", "PROD");
+    // define("ENVIRONMENT", "DEV");
 
     // ROUTER
     if (array_key_exists("p", $_GET)) {

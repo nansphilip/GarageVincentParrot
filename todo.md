@@ -1,4 +1,4 @@
-# Todo
+# Todo...
 
 ## Ajax
 
@@ -15,15 +15,9 @@
 - Envoyer un mail validation à l'utilisateur ?
 - Envoyer un mail à une adresse commune `devis@garage-vincent-parrot.fr`
 
-## Edition
-
-- Modale validation
-
-## Se connecter
-
-- Supprimer le bouton d'accès
-
 ## Toutes les pages
+
+- COMMENTER LE CODE
 
 - Si Scrollbar -> margin en JS
 

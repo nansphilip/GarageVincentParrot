@@ -5,7 +5,7 @@ Ce projet est réalisé dans le cadre de mes études de développement web chez 
 ## Cloner le dépôt Github
 
 - Télécharger le dépôt Github : [Garage Vincent Parrot](https://github.com/nansphilip/GarageVincentParrot/archive/refs/heads/main.zip)
-- Dé-archiver le fichier dans un dossier vide
+- Extraire le fichier dans un dossier vide
 
 ## Configurer la basse de donnée locale
 
