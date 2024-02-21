@@ -26,10 +26,6 @@ class CustomerReview
         $this->approved = dbFormatInt($this->approved);
     }
 
-    public function approveReview()
-    {
-    }
-
     public function sendReview()
     {
         $this->validate();
@@ -48,10 +44,6 @@ class CustomerReview
         $bindValues = [':full_name' => $this->fullName, ':review' => $this->review, ':rating' => $this->rating, ':approved' => 'APPROVED'];
 
         Database::query($sql, $bindValues);
-    }
-
-    private function sendEmailToAdmin()
-    {
     }
 
     public static function getAllPending()

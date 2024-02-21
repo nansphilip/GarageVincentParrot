@@ -43,3 +43,10 @@ Ce projet est réalisé dans le cadre de mes études de développement web chez 
 | employee1 | krCi8$jAYd3z |
 | employee2 | krCi8$jAYd3z |
 | employee3 | krCi8$jAYd3z |
+
+## Test d'importation de photo
+
+- 3 fichiers se trouvent dans le dossier `uploads` :
+  - `peugeot (non formaté).jpg` : extension de fichier incompatible
+  - `peugeot (demi formaté).jpg` : dimensions de l'image incompatibles
+  - `peugeot (formaté).jpg` : fichier formaté correctement pour l'importation

@@ -17,12 +17,6 @@ class User {
             return false;
         }
     }
-    
-    public function sendReview() {}
-
-    public function quoteRequest() {}
-
-    public function quoteRequestACar() {}
 }
 
 class Employee extends User {
@@ -38,10 +32,6 @@ class Employee extends User {
         $this->email = $email;
         $this->password = $password;
     }
-    
-    public function approveReview() {}
-
-    public function sendAndApproveReview() {}
 }
 
 class Admin extends Employee {
