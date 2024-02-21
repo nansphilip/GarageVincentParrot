@@ -8,7 +8,7 @@ SELECT User, Host FROM mysql.user;
 SHOW GRANTS FOR 'garage-vincent-parrot-user'@'localhost';
 
 -- Supprimer tous les privilèges d'un utilisateur
--- REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'garage-vincent-parrot-user'@'localhost';
+REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'garage-vincent-parrot-user'@'localhost';
 
 -- Assurer la mise à jour des privilèges après leur suppression
 FLUSH PRIVILEGES;

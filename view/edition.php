@@ -26,8 +26,8 @@
     </div>
 
     <div class="flex-1 d-flex flex-column overflow-x-hidden overflow-y-auto">
-        <!-- <div class="row g-3" data-masonry='{"percentPosition": true }'> -->
-        <div class="row g-3">
+        <div class="row g-3" data-masonry='{"percentPosition": true }'>
+        <!-- <div class="row g-3"> -->
 
             <section id="addReview" class="col-md-6">
                 <div class="bg-100 shadow-sm rounded-3 p-3">

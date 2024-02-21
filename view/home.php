@@ -40,7 +40,7 @@
                             </ul>
                             <div class="d-flex flex-row flex-wrap justify-content-between align-items-center">
                                 <p class="fs-5 fw-semibold mb-0"><?= formatNumber($vehicleList[$i]->price) ?> €</p>
-                                <a href="index.php?p=quote-request&id=<?= $vehicleList[$i]->id ?>" class="btn btn-primary stretched-link">Devis</a>
+                                <a href="index.php?p=quote-request&vehicle=<?= $vehicleList[$i]->id ?>" class="btn btn-primary stretched-link">Devis</a>
                             </div>
                         </div>
                     </div>
